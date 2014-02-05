@@ -1,0 +1,17 @@
+---
+---
+
+/* TEAM */
+  Author: Trevor Parker
+  Contact: trevor-site [at] trevorparker.com
+  Twitter: @trevorparker
+  PGP: B9D1 EAE0 7F3A 1414 37EF  3DF8 83A0 038B 2D26 89C3
+
+/* SITE */
+  Last update: {{ site.time | date: "%Y-%m-%d" }}
+  Language: English
+  Doctype: HTML5
+  IDE: Sublime Text 2
+  Framework: Foundation from ZURB - http://foundation.zurb.com
+  Generator: Jekyll by Tom Preston-Werner, Nick Quaranto, and contributors - http://jekyllrb.com
+  Icons: Font Awesome by Dave Gandy - http://fortawesome.github.io/Font-Awesome

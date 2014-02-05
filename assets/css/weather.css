@@ -1,0 +1,32 @@
+svg {
+  font-size: 0.9em;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+text.observation-title { font-size: 1.2em; }
+text.instructions { font-size: 1em; }
+g.context g.brush rect.background { fill: rgba(0,0,0,.1); }
+g.context g.axis path { stroke-opacity: 0; }
+g.context g.axis line { stroke-opacity: .1; }
+g.temp path.chart { fill: rgba(210,127,127,0.5); }
+g.wspd path.chart { fill: rgba(80,120,230,0.5); }
+g.wgst path.chart { fill: rgba(50,70,200,0.5); }
+g.pres path.chart { fill: rgba(127,130,201,0.5); }
+g.rain path.chart { fill: rgba(127,201,127,0.5); }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #f09f8c;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+g.context rect.background{
+  fill: rgb(200,200,255);
+  visibility: visible !important;
+}

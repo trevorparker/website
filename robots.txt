@@ -1,0 +1,3 @@
+Sitemap: https://www.trevorparker.com/sitemap.xml
+User-agent: *
+Disallow:

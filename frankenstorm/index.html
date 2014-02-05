@@ -1,0 +1,251 @@
+---
+title: Frankenstorm
+summary: An interactive graph of Hurricane Sandy's landfall on the Jersey Coast.
+---
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  {% include head.html %}
+  <link rel="stylesheet" href="/assets/css/weather.css">
+  <script src="http://d3js.org/d3.v2.js"></script>
+</head>
+<body>
+  {% include top_bar.html %}
+
+  <div class="row">
+    <div class="small-12 small-centered medium-9 large-9 columns">
+      <article id="page-{{ page.id }}">
+        <header>
+          <h2>Frankenstorm</h2>
+          <time datetime="2012-10-27T19:00:00Z">October 27 - October 31</time>
+        </header>
+        <p>The following is an interactive graph of weather conditions in Galloway, New Jersey between October 27 and 31, 2012. The dip in the Pressure graph shows Hurricane Sandy making landfall.</p>
+        <div id="chart-container"></div>
+        <p>Inspired by <a href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/" title="Multiple Area Charts with D3.js">Multiple Area Charts with D3.js</a>.</p>
+        <p>Data provided by <a href="http://www.wunderground.com" title="Weather Underground">Weather Underground</a>.</p>
+        <p><a href="http://www.wunderground.com" title="Weather Underground"><img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground"></a></p>
+      </article>
+    </div>
+  </div>
+
+  <script>
+  var margin = {top: 10, right: 40, bottom: 150, left: 60},
+  width = 582 - margin.left - margin.right,
+  height = 800 - margin.top - margin.bottom,
+  contextHeight = 40;
+  contextWidth = width * .75;
+
+  var svg = d3.select("#chart-container")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", (height + margin.top + margin.bottom));
+
+  //d3.csv takes a file path and a callback function
+  d3.csv('/frankenstorm/data.csv', createChart);
+
+  function createChart(data){
+  var observations = [],
+  charts = [],
+  maxDataPoint = 0;
+
+  for (var prop in data[0]) {
+  if (data[0].hasOwnProperty(prop)) {
+  if (prop != 'time' && prop != 'wdir') {
+  observations.push(prop);
+  }
+  }
+  };
+
+  var observationCount = observations.length,
+  startTime = data[0].time,
+  endTime = data[data.length - 1].time,
+  chartHeight = height * (1 / observationCount);
+
+  data.forEach(function(d) {
+  for (var prop in d) {
+  if (d.hasOwnProperty(prop)) {
+  d[prop] = parseFloat(d[prop]);
+
+  if (d[prop] > maxDataPoint && d[prop] < 1000000) {
+  maxDataPoint = d[prop];
+  }
+  }
+  }
+
+  var utcSeconds = d.time;
+  var dater = new Date(0);
+  dater.setUTCSeconds(utcSeconds);
+
+  d.time = dater;
+  });
+
+  for(var i = 0; i < observationCount; i++){
+  var mxdp = ['70', '80', '80', '32', '10'];
+  var mndp = ['30', '0', '0', '27', '0'];
+  charts.push(new Chart({
+  data: data.slice(),
+  id: i,
+  name: observations[i],
+  width: width,
+  height: height * (1 / observationCount),
+  maxDataPoint: mxdp[i],
+  minDataPoint: mndp[i],
+  svg: svg,
+  margin: margin,
+  showBottomAxis: (i == observations.length - 1)
+  }));
+  }
+
+  var contextXScale = d3.time.scale()
+  .range([0, contextWidth])
+  .domain(charts[0].xScale.domain());
+
+  var contextAxis = d3.svg.axis()
+  .scale(contextXScale)
+  .tickSize(contextHeight)
+  .tickPadding(-10)
+  .orient("bottom");
+
+  var contextArea = d3.svg.area()
+  .interpolate("monotone")
+  .x(function(d) { return contextXScale(d.date); })
+  .y0(contextHeight)
+  .y1(0);
+
+  var brush = d3.svg.brush()
+  .x(contextXScale)
+  .on("brush", onBrush);
+
+  var context = svg.append("g")
+  .attr("class","context")
+  .attr("transform", "translate(" + (margin.left + width * .13) + "," + (height + margin.top + (chartHeight/2)) + ")");
+
+  context.append("g")
+  .attr("class", "x axis top")
+  .attr("transform", "translate(0,0)")
+  .call(contextAxis);
+
+  context.append("g")
+  .attr("class", "x brush")
+  .call(brush)
+  .selectAll("rect")
+  .attr("y", 0)
+  .attr("height", contextHeight);
+
+  context.append("text")
+  .attr("class","instructions")
+  .attr("transform", "translate(68," + (contextHeight + 20) + ")")
+  .text('Click and drag above to zoom / pan the data');
+
+  function onBrush(){
+
+  var b = brush.empty() ? contextXScale.domain() : brush.extent();
+
+  for(var i = 0; i < observationCount; i++){
+  charts[i].showOnly(b);
+  }
+  }
+  }
+
+  function Chart(options){
+  this.chartData = options.data;
+  this.width = options.width;
+  this.height = options.height;
+  this.maxDataPoint = options.maxDataPoint;
+  this.minDataPoint = options.minDataPoint;
+  this.svg = options.svg;
+  this.id = options.id;
+  this.name = options.name;
+  this.margin = options.margin;
+  this.showBottomAxis = options.showBottomAxis;
+
+  var localName = this.name;
+
+  /* XScale is time based */
+  this.xScale = d3.time.scale()
+  .range([0, this.width])
+  .domain(d3.extent(this.chartData.map(function(d) { return d.time; })));
+
+  this.yScale = d3.scale.linear()
+  .range([this.height,0])
+  .domain([this.minDataPoint,this.maxDataPoint]);
+
+  var xS = this.xScale;
+  var yS = this.yScale;
+
+  this.area = d3.svg.area()
+  .interpolate("basis")
+  .x(function(d) { return xS(d.time); })
+  .y0(this.height)
+  .y1(function(d) { return yS(d[localName]); });
+
+
+  this.svg.append("defs").append("clipPath")
+  .attr("id", "clip-" + this.id)
+  .append("rect")
+  .attr("width", this.width)
+  .attr("height", this.height);
+
+  this.chartContainer = svg.append("g")
+  .attr('class',this.name.toLowerCase())
+  .attr("transform", "translate(" + this.margin.left + "," + (this.margin.top + (this.height * this.id) + (10 * this.id)) + ")");
+
+  this.chartContainer.append("path")
+  .data([this.chartData])
+  .attr("class", "chart")
+  .attr("clip-path", "url(#clip-" + this.id + ")")
+  .attr("d", this.area);
+
+  this.xAxisTop = d3.svg.axis().scale(this.xScale).orient("bottom");
+  this.xAxisBottom = d3.svg.axis().scale(this.xScale).orient("top");
+
+  if(this.id == 0){
+  this.chartContainer.append("g")
+  .attr("class", "x axis top")
+  .attr("transform", "translate(0,0)")
+  .call(this.xAxisTop);
+  }
+
+  if(this.showBottomAxis){
+  this.chartContainer.append("g")
+  .attr("class", "x axis bottom")
+  .attr("transform", "translate(0," + this.height + ")")
+  .call(this.xAxisBottom);
+  }
+
+  this.yAxis = d3.svg.axis().scale(this.yScale).orient("left").ticks(5);
+  var label;
+
+  if (this.name == 'temp')
+  label = 'Temperature (f)';
+  if (this.name == 'wspd')
+  label = 'Wind Speed (mph)';
+  if (this.name == 'wgst')
+  label = 'Wind Gust (mph)';
+  if (this.name == 'pres')
+  label = 'Pressure (in)';
+  if (this.name == 'rain')
+  label = 'Daily Rainfall (in)';
+  this.chartContainer.append("g")
+  .attr("class", "y axis")
+  .attr("transform", "translate(-15,0)")
+  .call(this.yAxis);
+  this.chartContainer.append("text")
+  .attr("class","observation-title")
+  .attr("transform", "translate(15,40)")
+  .text(label);
+
+  }
+
+  Chart.prototype.showOnly = function(b){
+  this.xScale.domain(b);
+  this.chartContainer.select("path").data([this.chartData]).attr("d", this.area);
+  this.chartContainer.select(".x.axis.top").call(this.xAxisTop);
+  this.chartContainer.select(".x.axis.bottom").call(this.xAxisBottom);
+  }
+  </script>
+</body>
+</html>
