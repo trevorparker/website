@@ -8,3 +8,4 @@ paginate: 5
 tag_dir: "tag"
 tag_title_prefix: "Posts tagged "
 encoding: utf-8
+include: [".well-known"]
