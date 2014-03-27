@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/trevorparker
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.trevorparker.com
+  * I am trevorparker (https://keybase.io/trevorparker) on keybase.
+  * I have a public key with fingerprint B9D1 EAE0 7F3A 1414 37EF  3DF8 83A0 038B 2D26 89C3
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "b9d1eae07f3a141437ef3df883a0038b2d2689c3",
+            "host": "keybase.io",
+            "key_id": "83A0038B2D2689C3",
+            "uid": "0dbe5b625ba1b648040b41323ca9d600",
+            "username": "trevorparker"
+        },
+        "service": {
+            "hostname": "www.trevorparker.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1395879494,
+    "expire_in": 157680000,
+    "prev": "5b194b7b978f369085ac50655c4b024bf217d872a237915013bb5d4b3989ebe1",
+    "seqno": 11,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2.0.22 (Darwin)
+
+owGbwMvMwMTYvIC5W1et8zDj6QP/kxiCjfMCq5WS8lMqlayqlbJTwVRaZl56alFB
+UWZeiZKVUpJlimFqYqqBeZpxoqGJoYmxeWqacUqahYVxooGBsUWSUYqRmYVlsrGS
+jlJGfjFIB9CYpMTiVL3MfKAYkBOfmQIUtTB2BKl3MnIBqXcGqS8FSxikJKWaJpkZ
+mSYlGiaZmVgYmBgkmRgaGxknJ1qmmBkYgBQWpxblJeamAlWXFKWW5RcVJBZlpxYp
+1eooAWXKMpNTQe4GWQ9VVV5eroesUi85PxdoTkFRfkl+cn4OUEVGSUlBsRXIhJLK
+ArCW1KR4qGHxSZl5KcBAAOooSy0qzszPU7IyBKpMLskEmW5obGlqYW5pYmmio5Ra
+UZBZlBqfCVJham5mYQAEIHtSy4BGmiYZWpokmSdZmlukGZtZGliYJiabGpiZmiab
+JBkYmSSlGRmap1iYGyUaGZtbGpoaGBonJZmmmCQZW1pYpialGiqBvFeYlw802xDo
+zsR0oJnFmel5iSWlRalKtZ1MMiwMjEwMbKxMoHhk4OIUgMXuJnf+/zHfgxTPC+9l
+bt1Wc/W65/cF9WY709NuZP9l49smk3GMM+Svt9ux9zuPH9Qpm7JOPUFJ8s8BqXU/
+OdSkL8VMVPY0bdh4o1Vi8+qEu5JLD2dknJtmrehcuFiN/Vrmh5fvDy3S0xfTC/Xc
+b7AkVl3SOnrDa/OpV1T3y2kpfX3/t6prUcfOqK4fbi1nS7nqkvuK+TvDn05cGPRJ
+ZtbiReY92rPWeRqcOGbO9in+4/bSJv6njRvLVIRfFtxpfOeZPGXF3vRbf433OE3J
+Mcy4b70reMHf66zVVREbJmzmX2D5+WmHxOavPzUtNigExpk25Jw99Ps5x8aE/9N/
+x9wIjPVZ2vk/49M/rba7nfnMklzzb84UvcdXL57/oU9Pwrvd+fk8pTu6qze6ObUk
+9usIrsqe+322iZ3wM+nyUP76E+KKp8SuMM5YFv/2a0WvoaJz24LV0jrn9yaFRe2e
+7W+etiBKpCFix/PgicbneGa8EivZlHvy8oUfVZzKy+x9F8g29uvqaMq+SKiYUrsy
++cRn2+jq6P0bv080fnx1v/xJlcaMtBPdYZyBeu9midUkmW2Pd5n3+Z/usoTy8yd3
+nslt9wzoqjK5k9EVeyUtvPbTkk2r5AtPZscnLN1w+xNn875VzNXz9rkW8VlySMT5
+6h7MedpevmzSHYadtso/H4Qr/bLSsKzTUPa+OFPhcirj8ctXJ9p4lAt/vhmhr/Vx
+0dN5AA==
+=xl30
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/trevorparker
+
+==================================================================
