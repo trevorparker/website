@@ -2,29 +2,47 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="small-12 small-centered medium-9 large-9 columns">
-    <nav class="breadcrumbs">
-      <a href="/">TrevorParker.com</a>
-      <a class="current" href="{{ page.url | remove: '/index.html' }}/">{{ page.title }}</a>
-    </nav>
-    <article id="post-{{ page.id }}" itemscope itemtype="http://schema.org/BlogPosting">
-      <header>
-        <h2><a href="{{ page.url }}/" itemprop="name">{{ page.title }}</a></h2>
-        <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date: "%B %d, %Y" }}
-        </time>
-        <span class="byline">
-          &ndash; by <a href="https://plus.google.com/107238073607515316367" rel="author">Trevor Parker</a>
-        </span>
-      </header>
-      {{ content }}
-    </article>
-  </div>
-</div>
+{% include top_bar.html %}
 
-<div class="row">
-  <div id="comments" class="small-12 small-centered medium-9 large-9 columns">
-  {% include disqus.html %}
+<article id="post-{{ page.id | replace: '/', '' }}" itemscope itemtype="http://schema.org/BlogPosting">
+  <section class="hero buffer-large-bottom">
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        <header>
+          <h2 class="headline"><a href="{{ page.url }}/" itemprop="name">{{ page.title }}</a></h2>
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%B %d, %Y" }}
+          </time>
+          <span class="byline">
+            &ndash; by <a href="https://plus.google.com/107238073607515316367" rel="author">Trevor Parker</a>
+          </span>
+        </header>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        {{ content }}
+        <footer>
+          {% if page.tags.size > 0 %}<div class="post-tags buffer-small hide-for-small-only">
+            <span class="subdued">Tagged:</span>
+            <ul class="tags">{% for tag in page.tags %}
+              <li>
+                <a href="/tag/{{ tag | replace: ' ', '-' | downcase }}/" title="All posts tagged &ldquo;{{ tag }}&rdquo;" rel="tag">{{ tag }}</a>
+              </li>{% endfor %}
+            </ul>
+          </div>{% endif %}
+        </footer>
+      </div>
+    </div>
+  </section>
+</article>
+
+<section>
+  <div class="row">
+    <div id="comments" class="small-12 medium-10 medium-centered large-8 large-centered columns">
+      {% include disqus.html %}
+    </div>
   </div>
-</div>
+</section>

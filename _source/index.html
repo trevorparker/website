@@ -4,107 +4,103 @@ summary: Software developer, tech enthusiast, amateur photographer, and random b
 ---
 
 {% if paginator.previous_page == None %}
-<div class="row">
-  <div class="small-12 small-centered medium-9 large-9 columns">
-    <div id="about" class="hide-for-small-only row panel" itemscope itemtype="http://schema.org/Person">
-      <div class="small-3 large-2 columns">
-        <img src="https://secure.gravatar.com/avatar/809e464ea3b49ae49d50792de65817ac?s=90" alt="A photo of Trevor" id="profile-pic" class="thumbphoto left" itemprop="image">
-      </div>
-      <div class="small-9 large-10 columns">
-        <h5>About <span itemprop="name">Trevor Parker</span></h5>
-        <p>I'm a tech enthusiast, amateur photographer, and random blogger. Check out my projects on <a href="https://github.com/trevorparker" title="Trevor's projects on GitHub" target="_blank">GitHub</a>.</p>
-      </div>
+<section id="home-hero" class="hero full buffer-large-bottom">
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered large-8 large-centered columns" itemscope itemtype="http://schema.org/Person">
+      <h1 itemprop="name" class="headline">Trevor Parker</h1>
+      <h2 class="subhead">Tech enthusiast, amateur photographer, and random blogger.</h2>
+      <ul id="social-cta">
+        <li><a href="http://github.com/trevorparker" title="Trevor on GitHub" target="_blank"><i class="fa fa-github"></i> Projects on GitHub</a></li>
+        <li><a href="http://twitter.com/trevorparker" title="Trevor on Twitter" target="_blank"><i class="fa fa-twitter"></i> Recent Tweets</a></li>
+        <li><a href="/resume" title="Trevor's R&eacute;sum&eacute;"><i class="fa fa-briefcase"></i> R&eacute;sum&eacute;</a></li>
+      </ul>
     </div>
   </div>
-</div>
+</section>
+{% else %}
+{% include top_bar.html %}
 {% endif %}
 
-{% for post in paginator.posts %}
-<div class="row">
-  <div class="small-12 small-centered medium-9 large-9 columns">
-    <article id="post-{{ post.id }}" itemscope itemtype="http://schema.org/BlogPosting">
-      <header>
-        <h2 class="post-title"><a href="{{ post.url }}/" itemprop="name">{{ post.title }}</a></h2>
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%B %d, %Y" }}
-        </time>
-      </header>
-      {{ post.excerpt | markdownify }}
-      {% if post.content contains '<!-- e -->' %}
-      <p class="more"><a href="{{ post.url }}/#more">Read more...</a></p>
-      {% endif %}
-      <footer>
-        <a class="comment-link" href="https://www.trevorparker.com{{ post.url }}/#disqus_thread">{{ post.title }}</a>{% if post.tags.size > 0 %}
-        <div class="post-tags hide-for-small-only">
-          <i class="fa fa-tags fa-lg"></i>
-          <ul class="tags">{% for tag in post.tags %}
-            <li>
-              <a href="/tag/{{ tag | replace: ' ', '-' | downcase }}/" title="All posts tagged &ldquo;{{ tag }}&rdquo;" rel="tag">{{ tag }}</a>
-            </li>{% endfor %}
-          </ul>
-        </div>{% endif %}
-      </footer>
-    </article>
+<section>{% for post in paginator.posts %}
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+      <article id="post-{{ post.id | replace: '/', '' }}" class="buffer-huge-bottom" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h2 class="post-title"><a href="{{ post.url }}/" itemprop="name">{{ post.title }}</a></h2>
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
+        </header>
+        {{ post.excerpt | markdownify }}
+        {% if post.content contains '<!-- e -->' %}
+        <p class="more"><a href="{{ post.url }}/#more">Read more...</a></p>
+        {% endif %}
+        <footer>
+          <a class="comment-link" href="https://www.trevorparker.com{{ post.url }}/#disqus_thread">{{ post.title }}</a>
+        </footer>
+      </article>
+    </div>
   </div>
-</div>
-{% endfor %}
+{% endfor %}</section>
 
-<div class="row">
-  <div id="paginator" class="small-11 small-centered medium-9 large-7 columns">
-    <ul id="page-list" class="pagination">
-      {% if paginator.previous_page == None %}
-        <li class="arrow unavailable"><a href="">&laquo;</a></li>
-        <li class="current"><a href="/">1</a></li>
-      {% elsif paginator.previous_page == 1 %}
-        <li class="arrow"><a href="/">&laquo;</a></li>
-        <li><a href="/">1</a></li>
-      {% else %}
-        <li class="arrow"><a href="{{ paginator.previous_page_path }}/">&laquo;</a></li>
-        <li><a href="/">1</a></li>
-      {% endif %}
+<section>
+  <div class="row">
+    <div id="paginator" class="small-12 medium-10 medium-centered large-8 large-centered columns">
+      <ul id="page-list" class="pagination">
+        {% if paginator.previous_page == None %}
+          <li class="arrow unavailable"><a href="">&laquo;</a></li>
+          <li class="current"><a href="/">1</a></li>
+        {% elsif paginator.previous_page == 1 %}
+          <li class="arrow"><a href="/">&laquo;</a></li>
+          <li><a href="/">1</a></li>
+        {% else %}
+          <li class="arrow"><a href="{{ paginator.previous_page_path }}/">&laquo;</a></li>
+          <li><a href="/">1</a></li>
+        {% endif %}
 
-      {% if paginator.total_pages > 10 %}
-        {% for page in (2..3) %}
-          {% if page == paginator.page %}
-            <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% else %}
-            <li><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% endif %}
-        {% endfor %}
-        <li>&nbsp;</li>
-        {% assign look_back = paginator.page | minus: 3 %}
-        {% assign look_forward = paginator.page | plus: 3 %}
-        {% assign cap_floor = paginator.total_pages | minus: 2 %}
-        {% for page in (look_back..look_forward) %}
-          {% if page == paginator.page and page > 3 and page < cap_floor %}
-            <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% elsif page > 3 and page < cap_floor %}
-            <li><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% endif %}
-        {% endfor %}
-        <li>&nbsp;</li>
-        {% for page in (cap_floor..paginator.total_pages) %}
-          {% if page == paginator.page and page > 3 and page >= cap_floor %}
-            <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% elsif page > 3 %}
-            <li><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% endif %}
-        {% endfor %}
-      {% else %}
-        {% for page in (2..paginator.total_pages) %}
-          {% if page == paginator.page %}
-            <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% else %}
-            <li><a href="/page/{{ page }}/">{{ page }}</a></li>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
+        {% if paginator.total_pages > 10 %}
+          {% for page in (2..3) %}
+            {% if page == paginator.page %}
+              <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% else %}
+              <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+          <li>&nbsp;</li>
+          {% assign look_back = paginator.page | minus: 3 %}
+          {% assign look_forward = paginator.page | plus: 3 %}
+          {% assign cap_floor = paginator.total_pages | minus: 2 %}
+          {% for page in (look_back..look_forward) %}
+            {% if page == paginator.page and page > 3 and page < cap_floor %}
+              <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% elsif page > 3 and page < cap_floor %}
+              <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+          <li>&nbsp;</li>
+          {% for page in (cap_floor..paginator.total_pages) %}
+            {% if page == paginator.page and page > 3 and page >= cap_floor %}
+              <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% elsif page > 3 %}
+              <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% for page in (2..paginator.total_pages) %}
+            {% if page == paginator.page %}
+              <li class="current"><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% else %}
+              <li><a href="/page/{{ page }}/">{{ page }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
 
-      {% if paginator.next_page == None %}
-      <li class="arrow unavailable"><a href="">&raquo;</a></li>
-      {% else %}
-      <li class="arrow"><a href="{{ paginator.next_page_path }}/">&raquo;</a></li>
-      {% endif %}
-    </ul>
+        {% if paginator.next_page == None %}
+        <li class="arrow unavailable"><a href="">&raquo;</a></li>
+        {% else %}
+        <li class="arrow"><a href="{{ paginator.next_page_path }}/">&raquo;</a></li>
+        {% endif %}
+      </ul>
+    </div>
   </div>
-</div>
+</section>

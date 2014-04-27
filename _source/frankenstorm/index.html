@@ -15,21 +15,23 @@ summary: An interactive graph of Hurricane Sandy's landfall on the Jersey Coast.
 <body>
   {% include top_bar.html %}
 
-  <div class="row">
-    <div class="small-12 small-centered medium-9 large-9 columns">
-      <article id="page-{{ page.id }}">
-        <header>
-          <h2>Frankenstorm</h2>
-          <time datetime="2012-10-27T19:00:00Z">October 27 - October 31</time>
-        </header>
-        <p>The following is an interactive graph of weather conditions in Galloway, New Jersey between October 27 and 31, 2012. The dip in the Pressure graph shows Hurricane Sandy making landfall.</p>
-        <div id="chart-container"></div>
-        <p>Inspired by <a href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/" title="Multiple Area Charts with D3.js">Multiple Area Charts with D3.js</a>.</p>
-        <p>Data provided by <a href="http://www.wunderground.com" title="Weather Underground">Weather Underground</a>.</p>
-        <p><a href="http://www.wunderground.com" title="Weather Underground"><img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground"></a></p>
-      </article>
+  <section>
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        <article id="page-{{ page.id }}">
+          <header>
+            <h2>Frankenstorm</h2>
+            <time datetime="2012-10-27T19:00:00Z">October 27 - October 31</time>
+          </header>
+          <p>The following is an interactive graph of weather conditions in Galloway, New Jersey between October 27 and 31, 2012. The dip in the Pressure graph shows Hurricane Sandy making landfall.</p>
+          <div id="chart-container"></div>
+          <p>Inspired by <a href="http://tympanus.net/codrops/2012/08/29/multiple-area-charts-with-d3-js/" title="Multiple Area Charts with D3.js">Multiple Area Charts with D3.js</a>.</p>
+          <p>Data provided by <a href="http://www.wunderground.com" title="Weather Underground">Weather Underground</a>.</p>
+          <p><a href="http://www.wunderground.com" title="Weather Underground"><img src="http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png" alt="Weather Underground"></a></p>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
   <script>
   var margin = {top: 10, right: 40, bottom: 150, left: 60},

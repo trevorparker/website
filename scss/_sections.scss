@@ -1,0 +1,119 @@
+$margin-huge: rem-calc(72);
+$margin-large: rem-calc(48);
+$margin-medium: rem-calc(32);
+$margin-small: rem-calc(24);
+
+$padding-huge: $margin-huge;
+$padding-large: $margin-large;
+$padding-medium: $margin-medium;
+$padding-small: $margin-small;
+
+@mixin expand-top($margin-size) {
+  padding-top: $margin-size;
+}
+
+@mixin expand-bottom($margin-size) {
+  padding-bottom: $margin-size;
+}
+
+@mixin buffer-top($margin-size) {
+  margin-top: $margin-small;
+
+  @media #{$medium-up} {
+    margin-top: $margin-size;
+  }
+}
+
+@mixin buffer-bottom($margin-size) {
+  margin-bottom: $margin-small;
+
+  @media #{$medium-up} {
+    margin-bottom: $margin-size;
+  }
+}
+
+div.highlight {
+  margin-bottom: $margin-small;
+}
+
+.buffer-huge {
+  @include buffer-top($margin-huge);
+  @include buffer-bottom($margin-huge);
+}
+
+.buffer-huge-top {
+  @include buffer-top($margin-huge);
+}
+
+.buffer-huge-bottom {
+  @include buffer-bottom($margin-huge);
+}
+
+.buffer-large {
+  @include buffer-top($margin-large);
+  @include buffer-bottom($margin-large);
+}
+
+.buffer-large-top {
+  @include buffer-top($margin-large);
+}
+
+.buffer-large-bottom {
+  @include buffer-bottom($margin-large);
+}
+
+.buffer-medium {
+  @include buffer-top($margin-medium);
+  @include buffer-bottom($margin-medium);
+}
+
+.buffer-medium-top {
+  @include buffer-top($margin-medium);
+}
+
+.buffer-medium-bottom {
+  @include buffer-bottom($margin-medium);
+}
+
+.buffer-small {
+  @include buffer-top($margin-small);
+  @include buffer-bottom($margin-small);
+}
+
+.buffer-small-top {
+  @include buffer-top($margin-small);
+}
+
+.buffer-small-bottom {
+  @include buffer-bottom($margin-small);
+}
+
+.topbar-container {
+  background-color: $topbar-bg-color;
+}
+
+#site-footer {
+  @include buffer-top($margin-large);
+  @include expand-top($padding-medium);
+  @include expand-bottom($padding-medium);
+
+  color: $primary-color;
+  border-top: 1px solid $primary-color;
+
+  #copyright {
+    width: 100%;
+    text-align: center;
+
+    @media #{$medium-up} {
+      text-align: left;
+      width: auto;
+    }
+  }
+
+  p, ul {
+    line-height: 1.6em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+  }
+
+}

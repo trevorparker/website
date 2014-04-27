@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% include top_bar.html %}
+
+<article id="page-resume">
+  <section class="hero buffer-large-bottom">
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        <header>
+          <h2 class="headline"><a href="{{ page.url }}/">{{ page.heading }}</a></h2>
+          <h3 class="subhead">{{ page.subhead }}</h3>
+          <section class="buffer-small-top">
+            <h3 class="subhead"><a href="mailto:trevor+resume@trevorparker.com" title="Email Trevor!"><i class="fa fa-envelope"></i> Email</a> &ndash; <a href="http://github.com/trevorparker" title="Trevor on GitHub" target="_blank"><i class="fa fa-github"></i> GitHub</a> &ndash; <a href="http://www.linkedin.com/in/trevorparker/" title="Trevor on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a></h3>
+          </section>
+        </header>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+</article>

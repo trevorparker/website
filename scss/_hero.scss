@@ -1,0 +1,99 @@
+$hero-font-color: #cef;
+
+.hero {
+  @include expand-top($padding-medium);
+  @include expand-bottom($padding-large);
+
+  color: $hero-font-color;
+  background-color: $primary-color;
+  text-align: center;
+
+  .headline {
+    color: $hero-font-color;
+    font-size: rem-calc(36);
+    margin-top: rem-calc(36);
+    margin-bottom: 0;
+  }
+  .subhead {
+    color: $hero-font-color;
+    font-size: rem-calc(18);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @media #{$medium-up} {
+    .headline { font-size: rem-calc(48); }
+    .subhead { font-size: rem-calc(20); }
+  }
+
+   a {
+    color: $hero-font-color;
+
+    &:hover {
+      color: lighten($hero-font-color, 10%);
+    }
+  }
+
+  &.full {
+    @media #{$medium-up} {
+      .headline { font-size: rem-calc(62); }
+      .subhead { font-size: rem-calc(24); }
+
+      height: 100%;
+      min-height: 550px;
+      max-height: 950px;
+
+      text-align: left;
+    }
+  }
+
+  &.medium {
+    @include expand-top($padding-large);
+    @include expand-bottom($padding-large);
+  }
+
+  &.large {
+    @include expand-top($padding-huge);
+    @include expand-bottom($padding-huge);
+
+    @media #{$medium-up} {
+      .headline { font-size: rem-calc(62); }
+      .subhead { font-size: rem-calc(24); }
+    }
+  }
+}
+
+#home-hero {
+  background: url(/assets/img/header-hero.jpg) #9fbfd3 50% no-repeat;
+  background-size: cover;
+
+  @include expand-top($padding-large);
+
+  .headline, .subhead { color: $body-font-color; }
+
+  #social-cta {
+    display: inline-block;
+    margin-top: rem-calc(18);
+    margin-left: 0;
+    padding-left: 0;
+
+    font-size: rem-calc(18);
+    white-space: nowrap;
+
+    @media #{$medium-up} {
+      font-size: rem-calc(36);
+    }
+
+    li {
+      display: block;
+
+      a {
+        color: darken($primary-color, 10%);
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

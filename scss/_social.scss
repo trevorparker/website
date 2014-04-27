@@ -1,0 +1,28 @@
+.social {
+  display: block;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.social ul {
+  list-style: none;
+}
+
+.social li {
+  font-size: 1.6em;
+  display: inline-block;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.social li:first-child {
+  margin-left: 0;
+}
+
+.social li:last-child {
+  margin-right: 0;
+}
+
+.social a:hover {
+  text-decoration: none;
+}

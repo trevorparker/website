@@ -1,16 +1,12 @@
 ---
 title: Trevor's R&eacute;sum&eacute;
-layout: page
+heading: Trevor Parker
+subhead: Full-stack developer with a passion to learn.
+layout: resume
 summary: A full-stack web developer with a passion to learn. Proficient in Perl, Ruby, Redis, and more.
 ---
 
-## Trevor Parker
-
-<a href="mailto:trevor+resume@trevorparker.com" title="Email Trevor!">Email me</a> about my resume!
-
-I’m a full-stack developer with a passion to learn. I’m at home on the command line, take pride in collaborating with peers, and thrive in an environment that encourages learning and continuous growth.
-
-#### Technologies
+### Technologies
 
 <ul class="tags">
   <li>
@@ -66,29 +62,29 @@ I’m a full-stack developer with a passion to learn. I’m at home on the comma
   </li>
 </ul>
 
-#### Experience
+### Experience
 
-##### Software Developer
+#### Software Developer at Linode
 
-###### Linode, LLC &ndash; Galloway, NJ &ndash; March 2012 - Present
+##### Galloway, NJ &ndash; March 2012 - Present
 
 * Prioritize and implement feature requests involving mission-critical software.
 * Collaborate with developers in a fast-paced, agile environment.
 * Maintain and troubleshoot infrastructural services and servers.
 
-##### Linux Technical Support
+#### Linux Technical Support at Linode
 
-###### Linode, LLC &ndash; Galloway, NJ &ndash; May 2011 - March 2012
+##### Galloway, NJ &ndash; May 2011 - March 2012
 
 * Supported a wide range of customers, from Linux novices to seasoned administrators, by phone, email, IRC, and ticket system.
 * Identified and assisted with troubleshooting a diverse range of server and system issues.
 * Escalated infrastructural issues to system administrators, network engineers, and management when necessary.
 
-#### Education
+### Education
 
-##### Bachelor of Business Administration
+#### Bachelor of Business Administration
 
-###### Georgia College &amp; State University &ndash; Milledgeville, GA &ndash; 2011
+##### Georgia College &amp; State University &ndash; Milledgeville, GA &ndash; 2011
 
 * Maintained HOPE scholarship.
 * Dean’s List.

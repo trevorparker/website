@@ -1,0 +1,25 @@
+article {
+  header {
+    margin-bottom: rem-calc(32);
+  }
+
+  footer {
+    padding-top: 1em;
+    border-top: 1px solid $primary-color;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $margin-medium;
+    margin-bottom: $margin-small;
+
+    &.tight {
+      margin-top: $margin-small;
+      margin-bottom: $margin-small;
+    }
+  }
+
+  .comment-link, .more, .subdued {
+    color: #888;
+    font-size: rem-calc(14);
+  }
+}

@@ -1,0 +1,61 @@
+code {
+  color: #222;
+  font-family: "Consolas", "Liberation Mono", Courier, monospace;
+  font-size: rem-calc(11);
+  font-weight: 200;
+  line-height: rem-calc(18);
+}
+
+pre {
+  background-color: #f0faff;
+  padding: rem-calc(14) rem-calc(28);
+  overflow: auto;
+  page-break-inside: avoid;
+}
+
+// Fluidvision
+.highlight { background-color: #F4F4F4; color: #000000; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }
+.highlight .c { color: #DDEEFE; }
+.highlight .cp { color: #DDEEFE; }
+.highlight .c1 { color: #DDEEFE; }
+.highlight .cs { color: #DDEEFE; }
+.highlight .cm { color: #DDEEFE; }
+.highlight .m { color: #C34F0A; font-weight: bold; }
+.highlight .mf { color: #C34F0A; font-weight: bold; }
+.highlight .mi { color: #C34F0A; font-weight: bold; }
+.highlight .mo { color: #C34F0A; font-weight: bold; }
+.highlight .se { color: #585CF6; font-weight: bold; }
+.highlight .kc { color: #585CF6; font-weight: bold; }
+.highlight .k { color: #2D5579; font-weight: bold; }
+.highlight .kn { color: #5B91E1; font-weight: bold; }
+.highlight .kt { color: #2D5579; font-weight: bold; }
+.highlight .s { color: #840E0B; }
+.highlight .sb { color: #840E0B; }
+.highlight .sc { color: #840E0B; }
+.highlight .sd { color: #840E0B; }
+.highlight .s2 { color: #840E0B; }
+.highlight .sh { color: #840E0B; }
+.highlight .si { color: #840E0B; }
+.highlight .sx { color: #840E0B; }
+.highlight .sr { color: #840E0B; }
+.highlight .s1 { color: #840E0B; }
+.highlight .ss { color: #840E0B; }
+.highlight .na { color: #000000; }
+.highlight .bp { color: #20498D; }
+.highlight .nc { color: #2D5579; font-weight: bold; }
+.highlight .no { color: #585CF6; }
+.highlight .nd { font-style: italic; }
+.highlight .ne { font-style: italic; }
+.highlight .nf { color: #1B4B9D; font-weight: bold; }
+.highlight .nt { color: #001D56; font-weight: bold; }
+.highlight .nv { color: #20498D; }
+.highlight .ow { color: #5B91E1; font-weight: bold; }
+.highlight .o { color: #5B91E1; font-weight: bold; }
+.highlight .n { color: #000000; }
+.highlight .nl { color: #000000; }
+.highlight .nn { color: #000000; }
+.highlight .nx { color: #000000; }
+.highlight .bp { color: #20498D; }
+.highlight .p { color: #000000; }

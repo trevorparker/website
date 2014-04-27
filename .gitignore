@@ -2,3 +2,6 @@
 .rbenv-gemsets
 .ruby-version
 _site
+
+/node_modules
+/bower_components

@@ -2,14 +2,14 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="small-12 small-centered medium-9 large-9 columns">
-    <nav class="breadcrumbs">
-      <a href="/">TrevorParker.com</a>
-      <a class="current" href="{{ page.url | remove: '/index.html' }}/">{{ page.title }}</a>
-    </nav>
-    <article id="page-{{ page.id }}" itemscope itemtype="http://schema.org/BlogPosting">
-      {{ content }}
-    </article>
+{% include top_bar.html %}
+
+<section>
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+      <article id="page-{{ page.id | replace: '/', '' }}" itemscope itemtype="http://schema.org/BlogPosting">
+        {{ content }}
+      </article>
+    </div>
   </div>
-</div>
+</section>
