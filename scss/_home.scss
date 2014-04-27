@@ -1,0 +1,5 @@
+.opportune-wrapping {
+  @media #{$screen} and (min-width: 20em) {
+    white-space: nowrap;
+  }
+}
