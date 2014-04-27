@@ -1,51 +1,34 @@
-$body-font-family: "Source Sans Pro", "Avenir", "Gotham", "Museo Sans", "Helvetica Neue", Arial, sans-serif;
+$body-font-family: "Karla", "Source Sans Pro", "Avenir", "Gotham", "Museo Sans", "Helvetica Neue", Arial, sans-serif;
 
 $header-font-family: "Aleo", "Quando", Georgia, Times, sans-serif;
 $header-font-weight: 300;
 
 $code-font-family: "Source Code Pro", "Consolas", "Liberation Mono", Courier, monospace;
 
-// Source Sans Pro
+// Karla
 @font-face {
-  font-family: "Source Sans Pro";
-  font-style: normal;
-  font-weight: 200;
-  src: local("Source Sans Pro ExtraLight"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/200.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  font-style: italic;
-  font-weight: 200;
-  src: local("Source Sans Pro ExtraLight Italic"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/200i.woff) format("woff");
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Karla";
   font-style: normal;
   font-weight: 400;
-  src: local("Source Sans Pro Regular"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/400.woff) format("woff");;
+  src: local("Karla Regular"), url(//brick.a.ssl.fastly.net/fonts/karla/400.woff) format("woff");
 }
-
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Karla";
   font-style: italic;
   font-weight: 400;
-  src: local("Source Sans Pro Italic"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/400i.woff) format("woff");
+  src: local("Karla Italic"), url(//brick.a.ssl.fastly.net/fonts/karla/400i.woff) format("woff");
 }
-
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Karla";
   font-style: normal;
   font-weight: 700;
-  src: local("Source Sans Pro Bold"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/700.woff) format("woff");
+  src: local("Karla Bold"), url(//brick.a.ssl.fastly.net/fonts/karla/700.woff) format("woff");
 }
-
 @font-face {
-  font-family: "Source Sans Pro";
+  font-family: "Karla";
   font-style: italic;
   font-weight: 700;
-  src: local("Source Sans Pro Bold Italic"), url(//brick.a.ssl.fastly.net/fonts/sourcesanspro/700i.woff) format("woff");
+  src: local("Karla Bold Italic"), url(//brick.a.ssl.fastly.net/fonts/karla/700i.woff) format("woff");
 }
 
 // Aleo

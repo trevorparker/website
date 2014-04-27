@@ -1,8 +1,8 @@
 code {
   color: #222;
-  font-size: rem-calc(11);
   font-weight: 400;
   line-height: rem-calc(18);
+  background-color: #f0faff;
 }
 
 pre {
@@ -10,6 +10,8 @@ pre {
   padding: rem-calc(14) rem-calc(28);
   overflow: auto;
   page-break-inside: avoid;
+
+  code { font-size: rem-calc(11); }
 }
 
 // Fluidvision
