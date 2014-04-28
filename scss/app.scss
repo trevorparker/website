@@ -1,5 +1,14 @@
 @import "settings";
-@import "foundation";
+@import
+  "foundation/components/buttons",
+  "foundation/components/button-groups",
+  "foundation/components/clearing",
+  "foundation/components/grid",
+  "foundation/components/inline-lists",
+  "foundation/components/orbit",
+  "foundation/components/pagination",
+  "foundation/components/top-bar",
+  "foundation/components/type";
 
 @import "home";
 
@@ -16,6 +25,8 @@
 
 @import "weather";
 
+// @import "foundation";
+//
 // Or selectively include components
 // @import
 //   "foundation/components/accordion",
