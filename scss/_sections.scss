@@ -92,6 +92,11 @@ div.highlight {
   background-color: $topbar-bg-color;
 }
 
+.carousel {
+  @include buffer-top($margin-small);
+  @include buffer-bottom($margin-small);
+}
+
 #site-footer {
   @include buffer-top($margin-large);
   @include expand-top($padding-medium);

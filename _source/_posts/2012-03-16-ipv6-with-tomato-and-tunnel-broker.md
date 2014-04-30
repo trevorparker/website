@@ -36,10 +36,9 @@ Within Tomato, click Basic, IPv6. For IPv6 Service Type, select 6in4 Static Tunn
 * Tunnel Client IPv6 Address: this refers to your tunnel's `Client IPv6 Address`.
 * Tunnel MTU and Tunnel TTL: leave these values at their default.
 
-<div class="thumbnail">
-  <p><img src="/assets/img/2012-03-16-ipv6-with-tomato-and-tunnel-broker/tomato-ipv6.png" alt="Tomato firmware IPv6 configuration page"></p>
-  <p>Review everything carefully, then click Save.</p>
-</div>
+<ul class="clearing-thumbs small-block-grid-4" data-clearing>
+  <li><a href="/assets/img/2012-03-16-ipv6-with-tomato-and-tunnel-broker/tomato-ipv6.png"><img data-caption="Review everything carefully, then click Save." alt="Tomato firmware IPv6 configuration page" src="/assets/img/2012-03-16-ipv6-with-tomato-and-tunnel-broker/tomato-ipv6.png"></a></li>
+</ul>
 
 ### Client Autoconf
 This part is easy by design. If you've configured everything correctly, any IPv6-capable machines on your local network will automatically see the router advertisements and configure an address. You may want to do a gratuitous reboot of your machines and the router.

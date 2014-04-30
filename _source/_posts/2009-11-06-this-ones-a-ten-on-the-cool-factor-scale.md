@@ -9,11 +9,9 @@ tags:
 layout: post
 ---
 
-<img class="splash" src="/assets/img/2009-11-06-this-ones-a-ten-on-the-cool-factor-scale/bulb.jpg" alt="Bulb"/>
-
-<div class="panel">
-  <p>"Bulb" featured as the inaugural photo for Coldplay's [Exhibition Room](http://www.coldplay.com/archive_exhibitionroom.php").</p>
-</div>
+<ul class="clearing-thumbs small-block-grid-4" data-clearing>
+  <li><a href="/assets/img/2009-11-06-this-ones-a-ten-on-the-cool-factor-scale/bulb.jpg"><img data-caption="'Bulb' featured as the inaugural photo for Coldplay's Exhibition Room." alt="A bulb." src="/assets/img/2009-11-06-this-ones-a-ten-on-the-cool-factor-scale/bulb.jpg"></a></li>
+</ul>
 
 So when the people behind the website of the Grammy Award-winning band Coldplay send out an exclusive notice that they're launching something new, and you're invited to take part in a creativity contest, the last thing you want to do is toss them something that's been lying around for months, right? *Right?*
 

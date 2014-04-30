@@ -10,7 +10,7 @@ layout: post
 summary: A retrospective on the evolution of the Internet and the devolution of effective data transport.
 ---
 
-###The Internet
+### The Internet
 It's 1996, and after a few short years of the "World Wide Web" fad, things have begun to settle down. This Internet thing has really changed the game.
 
 I've only got a few minutes on the modem before I'm inevitably kicked off, but my news reader pulls down articles for all the top headlines for the past three days in just a couple of minutes. It's all text, but I can see how multimedia might be added to news feeds in the future. Well, I'm good to go! I have all my reading material right here, full to the brim with content, and I can get on with my day. I can even load a few of these up to my PDA.
@@ -18,7 +18,7 @@ I've only got a few minutes on the modem before I'm inevitably kicked off, but m
 <!-- e -->
 <span id="more"></span>
 
-###The World Wide Web
+### The World Wide Web
 It's 2013, and I load up my news reader. Wow, lots of stuff in here since last night. I think I should remove these Reddit feeds. I don't get much use out of the CNN ones, either, since they're basically just headlines and going to the website bugs me to install their app. That's pretty much the case everywhere.
 
 Screw it, I'll just browse Facebook.

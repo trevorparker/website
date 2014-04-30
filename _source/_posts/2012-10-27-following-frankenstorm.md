@@ -11,7 +11,9 @@ layout: post
 summary: Visualizing Hurricane Sandy as it approached the New Jersey shore.
 ---
 
-<img class="splash" src="/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy.png" alt="Hurricane Sandy over the Atlantic">
+<ul class="clearing-thumbs small-block-grid-4" data-clearing>
+  <li><a href="/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy.png"><img data-caption="Hurricane Sandy over the Atlantic" alt="A satellite photo of Hurricane Sandy" src="/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy.png"></a></li>
+</ul>
 
 [Hurricane Sandy](https://en.wikipedia.org/wiki/Hurricane_Sandy) (colloquially known as "Frankenstorm") is going strong in the Atlantic. It is expected to make landfall somewhere between Delaware and New York late Monday or early Tuesday.
 

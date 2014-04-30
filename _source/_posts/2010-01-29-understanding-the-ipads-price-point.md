@@ -17,7 +17,7 @@ One of the killer features of the iPad is its price. If I had seen a specificati
 <!-- e -->
 <span id="more"></span>
 
-## Competes with Kindle
+### Competes with Kindle
 
 At a price point of $499 for the Wi-Fi version, the iPad is clearly trying to compete with popular e-book readers such as Amazon's Kindle DX.
 
@@ -25,13 +25,13 @@ But is the future of the e-book really going to be imitating authentic books? Th
 
 While that's a pretty harsh outlook for the Kindle, Amazon is not out of the game. This sort of thing happens every time there is a convergence of technology that brings something new to the table at a competitive price. Amazon will differentiate their product (they must do so by price so long as they wish to retain a four-shade display) and find their own place.
 
-## Handles multimedia experiences
+### Handles multimedia experiences
 
 There are not very many portable media players that can compare to what the iPad offers. In fact you'd be hard-pressed to find anything with such a reasonable screen size and resolution to play video.
 
 Portable DVD players, while much, much cheaper, are a brick compared to the iPad and are usually sub-par in the video resolution department. Actually, the most comparable alternative to the iPad is Apple's own iPod Touch. It sits comfortably price-wise between portable DVD players and the iPad. Next in line afterward would be Microsoft's Zune HD, which has the advantage of a stunning OLED screen.
 
-## Interwoven with productivity
+### Interwoven with productivity
 
 If the iPad were just a souped-up portable media player, there would be nothing that could justify the half-grand price point. Along with the iPad, other devices like the iPhone, Blackberry, and Google's Android mobile operating system are blurring the line between an authentic productivity device and something to distract you from everything else in your day. They are pushing traditional ideas about computers to the extremes. Laptops are no longer portable enough. Desktops are becoming less useful as items to increase productivity, turning more and more into the brute workhorses of information (or over-throttled gaming machines).
 
@@ -39,7 +39,7 @@ The iPad takes a little from both extremes, being an e-mail client that is purpo
 
 Whether or not marketing the productivity benefits - if it can be argued that any really exist — of a device like the iPad is wise depends upon the user. It is easy, if not outright irresistible, to make use of all of the best apps for everything except work. To be fair, many apps are honestly beneficial productivity programs. Others are intoxicatingly entertaining. Then again, who says that anyone will even buy an iPad with productivity in mind?
 
-## Builds a bridge for the indecisive
+### Builds a bridge for the indecisive
 
 This is the part where a product like the iPad either confuses customers or really pulls them in. The iPad occupies a funny spot between less-expensive portable media players and netbooks, and much more expensive tablet computers. It does so not only with price, but with features, which could turn out to be an ingenious positioning strategy.
 
