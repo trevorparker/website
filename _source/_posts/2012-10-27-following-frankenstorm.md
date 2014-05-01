@@ -9,14 +9,13 @@ tags:
   - Hurricane Sandy
 layout: post
 summary: Visualizing Hurricane Sandy as it approached the New Jersey shore.
+feature: sandy
 ---
-
-<ul class="clearing-thumbs small-block-grid-4" data-clearing>
-  <li><a href="/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy.png"><img data-caption="Hurricane Sandy over the Atlantic" alt="A satellite photo of Hurricane Sandy" src="/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy.png"></a></li>
-</ul>
 
 [Hurricane Sandy](https://en.wikipedia.org/wiki/Hurricane_Sandy) (colloquially known as "Frankenstorm") is going strong in the Atlantic. It is expected to make landfall somewhere between Delaware and New York late Monday or early Tuesday.
 
 To visualize and record this event, I'm fetching weather data from [Weather Underground](http://wunderground.com) for the Atlantic City/Galloway Township area and plugging it into a powerful graphing library. The data began around 3 PM today and will continue recording until the event is over.
 
 You can keep an eye on the data (and check it out in the future!) by heading over to the [Frankenstorm page](/frankenstorm/). Stay safe!
+
+Image by [NASA Goddard Space Flight Center](https://www.flickr.com/photos/gsfc/8132037748/).

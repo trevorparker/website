@@ -1,0 +1,16 @@
+#sandy-feature {
+  background: url(/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy-night.jpg) $body-font-color 50% no-repeat;
+  background-size: cover;
+
+  .headline, .subhead, .byline, time {
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  .headline, .subhead, .byline, time {
+    @include stroke($body-font-color);
+  }
+}

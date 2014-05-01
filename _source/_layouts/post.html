@@ -5,7 +5,7 @@ layout: default
 {% include top_bar.html %}
 
 <article id="post-{{ page.id | replace: '/', '' }}" itemscope itemtype="http://schema.org/BlogPosting">
-  <section class="hero buffer-large-bottom">
+  <section{% if page.feature.size %} id="{{ page.feature }}-feature"{% endif %} class="hero buffer-large-bottom">
     <div class="row">
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
         <header>

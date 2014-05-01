@@ -121,3 +121,6 @@ $topbar-title-weight: 300;
   src: local("Source Code Pro Black"), url(//brick.a.ssl.fastly.net/fonts/sourcecodepro/900.woff) format("woff")
 }
 
+@mixin stroke($color) {
+  text-shadow: 1px 0px 0px $color, 1px 1px 0px $color, 0px 1px 0px $color, -1px 1px 0px $color, -1px 0px 0px $color, -1px -1px 0px $color, 0px -1px 0px $color, 1px -1px 0px $color;
+}
