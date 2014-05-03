@@ -26,17 +26,17 @@ summary: Software developer, tech enthusiast, amateur photographer, and random b
     <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
       <article id="post-{{ post.id | replace: '/', '' }}" class="buffer-huge-bottom" itemscope itemtype="http://schema.org/BlogPosting">
         <header>
-          <h2 class="post-title"><a href="{{ post.url }}/" itemprop="name">{{ post.title }}</a></h2>
+          <h2 class="post-title"><a href="{{ post.url }}" itemprop="name">{{ post.title }}</a></h2>
           <time datetime="{{ post.date | date_to_xmlschema }}">
             {{ post.date | date: "%B %d, %Y" }}
           </time>
         </header>
         {{ post.excerpt | markdownify }}
         {% if post.content contains '<!-- e -->' %}
-        <p class="more"><a href="{{ post.url }}/#more">Read more...</a></p>
+        <p class="more"><a href="{{ post.url }}#more">Read more...</a></p>
         {% endif %}
         <footer>
-          <a class="comment-link" href="https://www.trevorparker.com{{ post.url }}/#disqus_thread">{{ post.title }}</a>
+          <a class="comment-link" href="{{ post.url }}#disqus_thread">{{ post.title }}</a>
         </footer>
       </article>
     </div>
@@ -54,7 +54,7 @@ summary: Software developer, tech enthusiast, amateur photographer, and random b
           <li class="arrow"><a href="/">&laquo;</a></li>
           <li><a href="/">1</a></li>
         {% else %}
-          <li class="arrow"><a href="{{ paginator.previous_page_path }}/">&laquo;</a></li>
+          <li class="arrow"><a href="{{ paginator.previous_page_path }}">&laquo;</a></li>
           <li><a href="/">1</a></li>
         {% endif %}
 
@@ -98,7 +98,7 @@ summary: Software developer, tech enthusiast, amateur photographer, and random b
         {% if paginator.next_page == None %}
         <li class="arrow unavailable"><a href="">&raquo;</a></li>
         {% else %}
-        <li class="arrow"><a href="{{ paginator.next_page_path }}/">&raquo;</a></li>
+        <li class="arrow"><a href="{{ paginator.next_page_path }}">&raquo;</a></li>
         {% endif %}
       </ul>
     </div>

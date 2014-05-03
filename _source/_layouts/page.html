@@ -9,7 +9,7 @@ layout: default
     <div class="row">
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
         <header>
-          <h2 class="headline"><a href="{{ page.url }}/" itemprop="name">{{ page.title }}</a></h2>
+          <h2 class="headline"><a href="{{ page.url | replace: 'index.html', '' }}" itemprop="name">{{ page.title }}</a></h2>
         </header>
       </div>
     </div>

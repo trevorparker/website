@@ -2,8 +2,8 @@ name: TrevorParker.com
 markdown: redcarpet
 pygments: true
 excerpt_separator: "<!-- e -->"
-permalink: "/:title"
-paginate_path: "page/:num"
+permalink: "/:title/"
+paginate_path: "page/:num/"
 paginate: 5
 tag_dir: "tag"
 tag_title_prefix: "Posts tagged "
