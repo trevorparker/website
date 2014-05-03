@@ -1,5 +1,5 @@
 #home-feature {
-  background: url(/assets/img/header-hero.jpg) #9fbfd3 50% no-repeat;
+  background: url(/assets/img/header-hero.jpg) #A0C9E9 50% no-repeat;
   background-size: cover;
 
   @include expand-top($padding-large);
@@ -34,7 +34,7 @@
 }
 
 #sandy-feature {
-  background: url(/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy-night.jpg) $body-font-color 50% no-repeat;
+  background: url(/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy-night.jpg) #444 50% no-repeat;
   background-size: cover;
 
   .headline, .subhead, .byline, time {
@@ -47,5 +47,22 @@
 
   .headline, .subhead, .byline, time {
     @include stroke($body-font-color);
+  }
+}
+
+#weather-with-python-feature {
+  background: url(/assets/img/2013-07-05-displaying-the-weather-with-python/lightning.jpg) #F0CCE9 50% no-repeat;
+  background-size: cover;
+
+  .headline, .subhead, .byline, time {
+    color: $body-font-color;
+
+    a {
+      color: $body-font-color;
+    }
+  }
+
+  .headline, .subhead, .byline, time {
+    @include stroke(white);
   }
 }

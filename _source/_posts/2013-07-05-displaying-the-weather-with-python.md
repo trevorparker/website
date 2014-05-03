@@ -9,6 +9,7 @@ tags:
   - vane
 layout: post
 summary: Developing a Python-based weather tool using the OpenWeatherMap API.
+feature: weather-with-python
 ---
 
 The [OpenWeatherMap](http://openweathermap.org/) API has been making the rounds. It practically came out of nowhere with a simple and open way to access weather data. This inspired me to write a tool that spits out a single, simple line describing the current weather at a location.
