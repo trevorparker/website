@@ -10,9 +10,9 @@
     {% for post in site.posts %}
     <item>
       <title>{{ post.title }}</title>
-      <link>https://www.trevorparker.com{{ post.url }}/</link>
-      <guid isPermaLink="true">https://www.trevorparker.com{{ post.url }}/</guid>
-      <comments>https://www.trevorparker.com{{ post.url }}/#disqus_thread</comments>
+      <link>https://www.trevorparker.com{{ post.url }}</link>
+      <guid isPermaLink="true">https://www.trevorparker.com{{ post.url }}</guid>
+      <comments>https://www.trevorparker.com{{ post.url }}#disqus_thread</comments>
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       <description>
         <![CDATA[ {{ post.content }} ]]>

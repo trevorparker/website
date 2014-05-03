@@ -7,22 +7,26 @@
     <loc>https://www.trevorparker.com/</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.trevorparker.com/resume/</loc>
     <lastmod>2014-02-04</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.trevorparker.com/frankenstorm/</loc>
     <lastmod>2012-10-31</lastmod>
     <changefreq>never</changefreq>
+    <priority>0.1</priority>
   </url>
   {% for post in site.posts %}
   <url>
-    <loc>https://www.trevorparker.com{{ post.url }}/</loc>
+    <loc>https://www.trevorparker.com{{ post.url }}</loc>
     <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   {% endfor %}
 </urlset>
