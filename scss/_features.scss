@@ -1,3 +1,38 @@
+#home-feature {
+  background: url(/assets/img/header-hero.jpg) #9fbfd3 50% no-repeat;
+  background-size: cover;
+
+  @include expand-top($padding-large);
+
+  .headline, .subhead { color: $body-font-color; }
+
+  #social-cta {
+    display: inline-block;
+    margin-top: rem-calc(18);
+    margin-left: 0;
+    padding-left: 0;
+
+    font-size: rem-calc(18);
+    white-space: nowrap;
+
+    @media #{$medium-up} {
+      font-size: rem-calc(36);
+    }
+
+    li {
+      display: block;
+
+      a {
+        color: darken($primary-color, 10%);
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
 #sandy-feature {
   background: url(/assets/img/2012-10-27-following-frankenstorm/hurricane-sandy-night.jpg) $body-font-color 50% no-repeat;
   background-size: cover;
