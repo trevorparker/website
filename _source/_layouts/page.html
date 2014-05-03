@@ -4,12 +4,21 @@ layout: default
 
 {% include top_bar.html %}
 
-<section>
-  <div class="row">
-    <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
-      <article id="page-{{ page.id | replace: '/', '' }}" itemscope itemtype="http://schema.org/BlogPosting">
-        {{ content }}
-      </article>
+<article id="page-{{ page.id | replace: '/', '' }}">
+  <section{% if page.feature.size %} id="{{ page.feature }}-feature"{% endif %} class="hero buffer-large-bottom">
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        <header>
+          <h2 class="headline"><a href="{{ page.url }}/" itemprop="name">{{ page.title }}</a></h2>
+        </header>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  <section>
+    <div class="row">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+</article>
