@@ -1,0 +1,46 @@
+.resume {
+  &.tags {
+    a {
+      color: darken($primary-color, 10%);
+
+      border: 1px solid $primary-color;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+
+      &:hover {
+        color: darken($primary-color, 25%);
+        border: 1px solid darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+
+ol.positions {
+    margin-left: 0;
+    padding-left: 0;
+
+    .position.title {
+      margin-top: rem-calc(28);
+      margin-bottom: 0;
+    }
+
+    .position.time {
+      margin-top: 0;
+    }
+
+    li {
+      display: block;
+    }
+
+    ul.accomplishments {
+      margin-left: rem-calc(20);
+      margin-bottom: rem-calc(20);
+
+      li {
+        display: list-item;
+      }
+    }
+}

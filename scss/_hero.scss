@@ -1,5 +1,3 @@
-$hero-font-color: #cef;
-
 .hero {
   @include expand-top($padding-medium);
   @include expand-bottom($padding-large);
