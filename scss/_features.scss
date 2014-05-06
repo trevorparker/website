@@ -38,10 +38,10 @@
   background-size: cover;
 
   .headline, .subhead, .byline, time {
-    color: white;
+    color: $color-white-pure;
 
     a {
-      color: white;
+      color: $color-white-pure;
     }
   }
 
@@ -63,6 +63,6 @@
   }
 
   .headline, .subhead, .byline, time {
-    @include stroke(white);
+    @include stroke($color-white-pure);
   }
 }

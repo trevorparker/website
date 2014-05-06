@@ -1,3 +1,32 @@
-$hero-font-color: #cef;
+// Reference colors
+$color-white-pure: #FFF;
+$color-white: #F5F5F5;
+$color-black-pure: #000;
+$color-black: #222;
+$color-blue: #008CBA;
+$color-blue-light: #A0D3e8;
+$color-blue-lighter: #CEF;
+$color-gray: #E7E7E7;
+$color-gray-dark: #AAA;
+$color-gray-darker: #888;
+$color-red: #F04124;
+$color-green: #43AC6A;
+$color-orange: #F08A24;
+
+// Stock palette
+$primary-color: $color-blue;
+$secondary-color: $color-gray;
+$alert-color: $color-red;
+$success-color: $color-green;
+$warning-color: $color-orange;
+$info-color: $color-blue-light;
+
+// Additional palette
+$subdued-color: $color-gray-darker;
+
+$body-bg: $color-white-pure;
+$body-font-color: $color-black;
+
+$hero-font-color: $color-blue-lighter;
 $header-hero-link-color: scale-color($primary-color, $lightness: -20%);
 $header-hero-link-color-hover: scale-color($header-hero-link-color, $lightness: -10%);

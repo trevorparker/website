@@ -19,7 +19,7 @@ article {
   }
 
   .comment-link, .more, .subdued {
-    color: #888;
+    color: $subdued-color;
     font-size: rem-calc(14);
   }
 }
