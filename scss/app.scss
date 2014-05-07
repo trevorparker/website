@@ -1,3 +1,8 @@
+// Foundation overrides
+@import "colors";
+@import "typography";
+
+// Foundation components
 @import "settings";
 @import
   "foundation/components/buttons",
@@ -11,22 +16,24 @@
   "foundation/components/type",
   "foundation/components/visibility";
 
-@import "home";
-
-@import "colors";
-@import "tags";
-@import "paginator";
+// Structure
 @import "sections";
-
+@import "article";
 @import "features";
 @import "hero";
-@import "article";
-@import "social";
 
-@import "syntax";
-
+// Pages
+@import "home";
 @import "resume";
 @import "weather";
+
+// My components
+@import "tags";
+@import "paginator";
+@import "social";
+
+// Pygments
+@import "syntax";
 
 // @import "foundation";
 //
