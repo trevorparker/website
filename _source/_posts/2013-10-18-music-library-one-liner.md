@@ -15,16 +15,16 @@ I'm learning more about powerful tools like `sed` and `awk` while taking a break
 
 This particular one-liner simply traverses a music directory, organized as Artist/Album/Songs, and dumps it out in a pretty list.
 
-``` bash
+~~~ bash
 cd ~/Music && find . \! -name ".*" | sed -Ee 's/[0-9]{2} //g' -Ee 's/\.(m4a|mp3)$//g' | awk -F/ 'NF > 0 {for (i=2;i<NF;i++) { printf "    " } print $NF}'
-```
+~~~
 
 <!-- e -->
 <span id="more"></span>
 
 Here's a snippet of what the output looks like:
 
-```
+~~~
 ...
 Phoenix
     Wolfgang Amadeus Phoenix
@@ -44,4 +44,4 @@ R.E.M.
         I've Been High
         All The Way To Reno (You're Gonna Be A Star)
 ...
-```
+~~~

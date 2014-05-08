@@ -32,13 +32,13 @@ This update focuses on the first draft of the serialization format, which is eff
 
 This is the top-level object that encapsulates all Project and Task objects. I am tentatively calling this framework "TilDone."
 
-``` json
+~~~ json
 {
     "tildone": "000001",
     "projects": [],
     "tasks": []
 }
-```
+~~~
 
 * `tildone` is a required string specifying the serialization format version
 * `projects` is an optional array of Project objects
@@ -50,7 +50,7 @@ Tasks can be associated with a specific project or stand on their own.
 
 Projects can contain zero or more Task objects, plus some meta-data.
 
-``` json
+~~~ json
 {
     "id": "1e0b2be8-f70f-11e2-b3fe-7e7c4ab78cdb",
     "description": "To-Do list framework",
@@ -61,7 +61,7 @@ Projects can contain zero or more Task objects, plus some meta-data.
     ],
     "tasks": []
 }
-```
+~~~
 
 * `id` is an auto-generated UUID for this project
 * `description` is a required string description of the project
@@ -73,7 +73,7 @@ Projects can contain zero or more Task objects, plus some meta-data.
 
 A task specifies a single to-do or item to be completed.
 
-``` json
+~~~ json
 {
     "id": "b11a4e34-f712-11e2-85e0-bcc58b41ba03",
     "description": "Decide on a serialization format",
@@ -81,7 +81,7 @@ A task specifies a single to-do or item to be completed.
     "due": 1374971728,
     "notes": []
 }
-```
+~~~
 
 * `id` is an auto-generated UUID for this task
 * `description` is a required string description of the task

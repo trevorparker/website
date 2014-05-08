@@ -1,13 +1,24 @@
-name: TrevorParker.com
-markdown: redcarpet
-pygments: true
-excerpt_separator: "<!-- e -->"
-permalink: "/:title/"
-paginate_path: "page/:num/"
-paginate: 5
-tag_dir: "tag"
-tag_title_prefix: "Posts tagged "
-encoding: utf-8
 source: ./_source
 destination: ./_site
 include: [".well-known"]
+
+name: TrevorParker.com
+encoding: utf-8
+permalink: "/:title/"
+
+paginate_path: "page/:num/"
+paginate: 5
+
+excerpt_separator: "<!-- e -->"
+
+tag_dir: "tag"
+tag_title_prefix: "Posts tagged "
+
+markdown: kramdown
+
+kramdown:
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: nil
+    coderay_css: class

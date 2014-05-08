@@ -27,12 +27,12 @@ Now we need a hypothetical set of two meat pies to make. They both have the same
 
 In reverse time order:
 
-```
+~~~
 $ td sunday Make another meat pie
 $ td saturday Make a meat pie
 $ td before Friday Buy ingredients for meat pies
 $ td thursday Find recipe for the meat pie on Saturday
-```
+~~~
 
 The snippet above says a lot of things. Mostly that we eat a lot of meat pies. A human reading it should be able to figure out what's going on. But, in a syntactic sense, how do we interpret this? The last line is the tricky one:
 
@@ -43,9 +43,9 @@ The first interpretation indicates that we need to find a recipe on Thursday for
 
 The easy answer would be to prefer the front-matter due date because, well, it stands out from the task itself. But what about this:
 
-```
+~~~
 $ td thursday drink up on friday this week
-```
+~~~
 
 Which therefore becomes:
 
@@ -61,9 +61,9 @@ So, if we want the flexibility of either using front-matter due dates or casual 
 
 So, this means:
 
-```
+~~~
 $ td thursday Find recipe for the meat pie on Saturday
-```
+~~~
 
 would predictably be interpreted as:
 
@@ -71,9 +71,9 @@ would predictably be interpreted as:
 
 And, if we want no due date for this task (and therefore don't want "on Saturday" to trigger a due date):
 
-```
+~~~
 $ td none Find recipe for the meat pie on Saturday
-```
+~~~
 
 would result in:
 
@@ -81,9 +81,9 @@ would result in:
 
 Finally, if we actually wanted to find a recipe for the meat pie we're making Saturday, this will suffice:
 
-```
+~~~
 $ td Find recipe for the meat pie on Saturday
-```
+~~~
 
 meaning:
 
