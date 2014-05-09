@@ -4,17 +4,17 @@ layout: default
 
 {% include top_bar.html %}
 
-<article id="post-{{ page.id | replace: '/', '' }}" itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-{{ page.id | replace: '/', '' }}" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
   <section{% if page.feature.size %} id="{{ page.feature }}-feature"{% endif %} class="hero buffer-large-bottom">
     <div class="row">
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
         <header>
-          <h2 class="headline"><a href="{{ page.url }}" itemprop="name">{{ page.title }}</a></h2>
-          <time datetime="{{ page.date | date_to_xmlschema }}">
+          <h2 class="headline" itemprop="name"><a href="{{ page.url }}" itemprop="url">{{ page.title }}</a></h2>
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
             {{ page.date | date: "%B %d, %Y" }}
           </time>
           <span class="byline">
-            &ndash; by <a href="https://plus.google.com/107238073607515316367" rel="author">Trevor Parker</a>
+            &ndash; by <span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a href="https://plus.google.com/107238073607515316367" rel="author" >Trevor Parker</a></span>
           </span>
         </header>
       </div>
@@ -22,7 +22,7 @@ layout: default
   </section>
   <section>
     <div class="row">
-      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+      <div class="small-12 medium-10 medium-centered large-8 large-centered columns" itemprop="description articleBody">
         {{ content }}
         <footer>
           {% if page.tags.size > 0 %}<div class="post-tags buffer-small hide-for-small-only">
