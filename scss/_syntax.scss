@@ -3,7 +3,6 @@ code, .code {
   font-weight: 400;
   line-height: rem-calc(18);
   background-color: #f0faff;
-  margin-bottom: $paragraph-margin-bottom;
 }
 
 pre {
@@ -14,6 +13,8 @@ pre {
 
   code, .code { font-size: rem-calc(11); }
 }
+
+pre, code, .code { margin-bottom: $paragraph-margin-bottom; }
 
 .line-numbers {
   margin-right: 1em;
