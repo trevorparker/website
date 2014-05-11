@@ -1,6 +1,5 @@
 ---
 title: Hardening SSL in Nginx
-date: '2014-05-10T02:39:07+00:00'
 tags:
   - nginx
   - ssl
