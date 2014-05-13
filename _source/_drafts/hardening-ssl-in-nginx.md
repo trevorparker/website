@@ -19,21 +19,21 @@ For starters, you'll want to choose a set of ciphers that provide a high assuran
 
 ### Stronger Ciphers
 
-Ciphers are literally the core of what make encryption and message authentication work. If a cipher is determined to be weak or vulnerable to attack, its usefulness is instantly degraded. Unfortunately a balance has to be maintained between the set of ciphers that are still good enough to be useful and the set of browsers being used by visitors and customers.
+Ciphers make encryption and message authentication work. If a cipher is determined to be weak or vulnerable to attack, its usefulness is instantly degraded. Unfortunately a balance has to be maintained between the set of ciphers that are still good enough to be useful and the set of ciphers that are supported by your site's visitors.
 
 At the time of writing, the following [Nginx](http://nginx.org/) configuration is what is used on this site, and achieves an A+ rating on the [Qualys SSL Labs test](https://www.ssllabs.com/ssltest/index.html):
 
 ~~~
 ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
 ssl_prefer_server_ciphers on;
-ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 \
-ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-RC4-SHA \
-ECDHE-RSA-AES256-SHA DHE-RSA-AES256-SHA DHE-RSA-AES128-SHA RC4-SHA";
+ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!MD5:!DSS;
 ssl_session_timeout 5m;
 ssl_session_cache builtin:1000 shared:SSL:10m;
 ~~~
 
-The most important bits here are the `ssl_protocols`, `ssl_prefer_server_ciphers`, and `ssl_ciphers` lines. They declare which protocols to support, whether or not to prefer the server-defined list of ciphers (yes), and the list of ciphers to use in order of most to least preferred.
+The most important bits here are the `ssl_protocols`, `ssl_prefer_server_ciphers`, and `ssl_ciphers` lines.
+
+We snuff out older SSL versions with the `ssl_protocols` line. To help ensure that the browser we only use the ciphers we want, `ssl_prefer_server_ciphers` is turned on. Finally, `ssl_ciphers` specifies the list of ciphers that we are OK with -- along with a handful of conditions that we explicitly want to exclude (`!aNULL` to refuse ciphers without authentication, `!MD5` to refuse ciphers with MD5, and so on).
 
 ### Stricter Security with HSTS
 
