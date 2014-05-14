@@ -5,6 +5,7 @@ tags:
   - apache
   - ssl
   - tls
+  - ciphers
   - hsts
   - security
 layout: post
@@ -20,14 +21,14 @@ For starters, you'll want to choose a set of ciphers that provide a high assuran
 
 ### Stronger Ciphers
 
-Ciphers make encryption and message authentication work. If a cipher is determined to be weak or vulnerable to attack, its usefulness is instantly degraded. Unfortunately a balance has to be maintained between the set of ciphers that are still good enough to be useful and the set of ciphers that are supported by your site's visitors.
+Ciphers make encryption and message authentication work. If a cipher is determined to be weak or vulnerable to attack, its usefulness is instantly degraded. Unfortunately a balance has to be maintained between the set of ciphers that are still good enough to be useful and the set of ciphers that are supported by your visitor's browsers.
 
 At the time of writing, the following [Nginx](http://nginx.org/) configuration is what is used on this site, and achieves an A+ rating on the [Qualys SSL Labs test](https://www.ssllabs.com/ssltest/index.html):
 
 ~~~
 ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
 ssl_prefer_server_ciphers on;
-ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!DSS!PKS;
+ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!DSS:!PKS;
 ssl_session_timeout 5m;
 ssl_session_cache builtin:1000 shared:SSL:10m;
 ~~~
@@ -44,7 +45,7 @@ Luckily, modern browsers have adopted a standard which allows the server to tell
 
 This standard, [HTTP Strict Transport Security](https://tools.ietf.org/html/rfc6797) (HSTS), is a simple header that a server provides every time a client makes a request. The header indicates for how long a browser should unconditionally refuse to take part in unsecured HTTP connection for a specific domain.
 
-If you are prepared to guarantee that your server should be available over HTTPS *and only HTTPS* indefinitely, the following header will enforce HSTS for modern browsers:
+If you are prepared to guarantee that your server should be available over HTTPS *and only HTTPS* indefinitely, the following Nginx directive will enforce HSTS for modern browsers:
 
 ~~~
 add_header Strict-Transport-Security max-age=31536000;
@@ -53,7 +54,7 @@ add_header Strict-Transport-Security max-age=31536000;
 However, it is recommended you start out with a much smaller `max-age`, in case things don't work out or a misconfiguration wreaks havoc. Perhaps just 24 hours:
 
 ~~~
-add_header Strict-Transport-Security max-age=24;
+add_header Strict-Transport-Security max-age=86400;
 ~~~
 
 Once you're comfortable with the idea of your site being HTTPS-only, you can bump this up to a few months or a year.
@@ -74,4 +75,4 @@ And, to require HSTS for Apache (you may need to enable `mod_headers`):
 Header set Strict-Transport-Security "max-age=31536000;"
 ~~~
 
-Security is a neverending process, so it is important to stay aware of and prepared to handle any change in the effectiveness of a cipher.
+Security is a neverending process, so it is important to stay aware of and prepared to handle any change in the effectiveness of a cipher. Keeping an eye on resources such as [Mozilla's Recommended Ciphersuites](https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite) and [SSL/TLS Deployment Best Practices by Qualys SSL Labs](https://www.ssllabs.com/projects/best-practices/) is a good place to start.
