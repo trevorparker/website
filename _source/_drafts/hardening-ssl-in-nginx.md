@@ -2,12 +2,13 @@
 title: Hardening SSL in Nginx
 tags:
   - nginx
+  - apache
   - ssl
   - tls
   - hsts
   - security
 layout: post
-summary: A starting point for using strong SSL ciphers in Nginx.
+summary: A starting point for hardening SSL on an Nginx web server.
 ---
 
 Securing your site's web traffic with SSL is more than just slapping an SSL certificate on your server. Times have changed. Things have gotten more nuanced as browsers have aged, ciphers have weakened, and attackers have gotten more creative.
@@ -56,5 +57,21 @@ add_header Strict-Transport-Security max-age=24;
 ~~~
 
 Once you're comfortable with the idea of your site being HTTPS-only, you can bump this up to a few months or a year.
+
+### Apache and Other Web Servers
+
+Most of the configuration options described here can be easily translated to Apache and other modern web servers. For instance, here's Apache's flavor of the SSL cipher configuration described above:
+
+~~~
+SSLProtocol all -SSLv2
+SSLHonorCipherOrder on
+SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!MD5:!DSS
+~~~
+
+And, to require HSTS for Apache (you may need to enable `mod_headers`):
+
+~~~
+Header set Strict-Transport-Security "max-age=31536000;"
+~~~
 
 Security is a neverending process, so it is important to stay aware of and prepared to handle any change in the effectiveness of a cipher.
