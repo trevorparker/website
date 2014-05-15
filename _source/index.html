@@ -31,9 +31,9 @@ summary: Software developer, tech enthusiast, amateur photographer, and random b
             {{ post.date | date: "%B %d, %Y" }}
           </time>
         </header>
-        <span itemprop="description">
+        <section itemprop="description">
           {{ post.excerpt | markdownify }}
-        </span>
+        </section>
         {% if post.content contains '<!-- e -->' %}
         <p class="more"><a href="{{ post.url }}#more">Read more...</a></p>
         {% endif %}
