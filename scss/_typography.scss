@@ -124,3 +124,9 @@ $topbar-title-weight: 300;
 @mixin stroke($color) {
   text-shadow: 1px 0px 0px $color, 1px 1px 0px $color, 0px 1px 0px $color, -1px 1px 0px $color, -1px 0px 0px $color, -1px -1px 0px $color, 0px -1px 0px $color, 1px -1px 0px $color;
 }
+
+.arrow-for-more::before {
+  color: $alert-color;
+  font-size: 1.2em;
+  content: "» ";
+}

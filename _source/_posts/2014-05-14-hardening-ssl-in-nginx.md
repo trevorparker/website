@@ -34,6 +34,9 @@ ssl_session_timeout 5m;
 ssl_session_cache builtin:1000 shared:SSL:10m;
 ~~~
 
+{: .arrow-for-more}
+[View my current Nginx configuration for this site on GitHub](https://github.com/trevorparker/nginx-configs/blob/master/trevorparker.com).
+
 The most important bits here are the `ssl_protocols`, `ssl_prefer_server_ciphers`, and `ssl_ciphers` lines.
 
 We snuff out older SSL versions with the `ssl_protocols` line. To help ensure that the browser we only use the ciphers we want, `ssl_prefer_server_ciphers` is turned on. Finally, `ssl_ciphers` specifies the list of ciphers that we are OK with -- along with a handful of conditions that we explicitly want to exclude (`!aNULL` to refuse ciphers without authentication, `!MD5` to refuse ciphers with MD5, and so on).
