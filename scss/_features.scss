@@ -1,8 +1,8 @@
 #home-feature {
-  background: url(/assets/img/header-hero.jpg) #A0C9E9 50% no-repeat;
+  background: url(/assets/img/header-hero.jpg) #A0C9E9 60% no-repeat;
   background-size: cover;
 
-  @include expand-top($padding-large);
+  @include expand-top($padding-medium);
 
   .headline, .subhead { color: $body-font-color; }
 
@@ -21,6 +21,10 @@
 
     li {
       display: block;
+
+      hr {
+        border-color: $primary-color;
+      }
 
       a {
         color: darken($primary-color, 10%);

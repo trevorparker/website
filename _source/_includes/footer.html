@@ -10,5 +10,17 @@
 </section>
 
 {% include foundation_js.html %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('a[href^="#"]').click(function(){
+    $('html, body').animate({
+        scrollTop: $(this.hash).offset().top
+    }, 500);
+    return false;
+  });
+});
+</script>
+
 {% include disqus_js.html %}
 {% include ga_js.html %}
