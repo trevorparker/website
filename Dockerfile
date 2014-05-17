@@ -1,14 +1,13 @@
 FROM debian:wheezy
 MAINTAINER Trevor Parker <trevor@trevorparker.com>
 
-RUN apt-get update && apt-get -y upgrade \
-  && apt-get -y install build-essential python2.7 ruby ruby-dev
-
-RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 100
-RUN gem install --no-ri --no-rdoc jekyll coderay therubyracer
-
 ADD . /data
 WORKDIR /data
+
+RUN apt-get update && apt-get -y upgrade \
+  && apt-get -y install build-essential bundler ruby ruby-dev
+
+RUN bundle install
 
 EXPOSE 4000
 
