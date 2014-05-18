@@ -22,9 +22,7 @@ module.exports = function(grunt) {
           '_source/assets/js/app.min.js': [
             'bower_components/foundation/js/foundation.js',
             'bower_components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky.js'
-          ],
-          '_source/assets/js/jquery.min.js': 'bower_components/jquery/dist/jquery.js',
-          '_source/assets/js/modernizr.min.js': 'bower_components/modernizr/modernizr.js'
+          ]
         }
       }
     },
