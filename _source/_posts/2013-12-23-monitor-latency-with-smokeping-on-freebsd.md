@@ -25,11 +25,10 @@ Installing and configuring SmokePing is pretty straightforward for most Linux di
 
 #### Install SmokePing
 
-SmokePing itself is already distributed with the [FreeBSD Ports Collection](http://www.freebsd.org/ports/index.html). Installing SmokePing is just a matter of building it and its dependencies:
+SmokePing itself is already distributed with the [FreeBSD Ports Collection](http://www.freebsd.org/ports/index.html). It's just a matter of installing SmokePing and its dependencies:
 
 ~~~
-cd /usr/ports/net-mgmt/smokeping
-make config-recursive install clean
+pkg install smokeping
 ~~~
 
 Add SmokePing to `/etc/rc.conf`:
@@ -118,71 +117,55 @@ host = db-secondary.example.com
 
 You don't have to arrange your targets in multiple levels. You can make it as simple as you'd like, or break it down even further.
 
-#### Install Apache, FastCGI, and mod_fcgid
+#### Install Apache
 
-You'll want to install Apache to serve up all of the goodness that SmokePing is generating, along with [FastCGI](http://www.fastcgi.com/) and [mod_fcgid](https://httpd.apache.org/mod_fcgid/). FastCGI is used as glue between Apache and SmokePing to generate graphs and the SmokePing web interface.
+You'll want to install Apache to serve up all of the goodness that SmokePing is generating. We'll be using `mod_cgi` and Apache 2.4.
 
 ~~~
-cd /usr/ports/www/apache22
-make config-recursive install clean
-cd /usr/ports/www/fcgi
-make install clean
-cd /usr/ports/www/mod_fcgid
-make install clean
+pkg install apache24
 ~~~
 
 Now, add Apache to your `/etc/rc.conf`:
 
 ~~~
-apache22_enable="YES"
+apache24_enable="YES"
 ~~~
 
 #### Configure Apache
 
 We'll point `/smokeping` to `/usr/local/smokeping/htdocs` in this example, but you can name this alias anything you'd like. You can even toss it under a subdomain with a VirtualHost.
 
-First, edit `/usr/local/etc/apache22/Includes/smokeping.conf` and add the following lines to this new file:
+First, edit `/usr/local/etc/apache24/Includes/smokeping.conf` and add the following lines to this new file:
 
-~~~
-LoadModule fcgid_module libexec/apache22/mod_fcgid.so
+~~~ apache
+LoadModule cgi_module libexec/apache24/mod_cgi.so
 
-<IfModule mod_fcgid.c>
-    AddHandler fcgid-script .fcgi
-</IfModule>
-
-Alias /smokeping "/usr/local/smokeping/htdocs"
-<Directory "/usr/local/smokeping/htdocs">
+Alias /smokeping /usr/local/smokeping/htdocs
+<Directory /usr/local/smokeping/htdocs>
+    Require all granted
+    AllowOverride none
     Options Indexes FollowSymLinks ExecCGI
-    AllowOverride None
-    Order allow,deny
-    Allow from all
+    AddHandler cgi-script .cgi .fcgi
+    DirectoryIndex index.html smokeping.fcgi
 </Directory>
 ~~~
 
-This loads mod_fcgid and tells Apache where to look when serving up `/smokeping`. It also enables `ExecCGI` so that `smokeping.fcgi` can be run.
+This loads mod_cgi and tells Apache where to look when serving up `/smokeping`. It also enables `ExecCGI` so that `smokeping.fcgi` can be run.
 
-Next, edit `/usr/local/etc/apache22/httpd.conf` and find the `DirectoryIndex` directive, and append `smokeping.fcgi` to it:
-
-~~~
-<IfModule dir_module>
-    DirectoryIndex index.html smokeping.fcgi
-</IfModule>
-~~~
-
-This tells Apache to serve up `smokeping.fcgi` if it's in a directory that we're accessing. Since we've enabled `mod_fcgid` and turned on `ExecCGI` for our SmokePing directory, Apache will run this CGI script and serve the result.
+`DirectoryIndex` tells Apache to serve up `smokeping.fcgi` if it's in a directory that we're accessing. Since we've enabled `mod_cgi` and turned on `ExecCGI` for our SmokePing directory, Apache will run this CGI script and serve the result.
 
 #### Wrapping up
 
 Finally, you're ready to start Apache and SmokePing. First you'll want to check the config for Apache:
 
 ~~~
-service apache22 configtest
+service apache24 configtest
 ~~~
 
 Now start them both:
 
 ~~~
-service apache22 start
+service apache24 start
 service smokeping start
 ~~~
 
