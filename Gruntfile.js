@@ -19,10 +19,12 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
+          '_source/assets/js/jquery.min.js': 'bower_components/foundation/js/vendor/jquery.js',
+          '_source/assets/js/fastclick.min.js': 'bower_components/foundation/js/vendor/fastclick.js',
           '_source/assets/js/app.min.js': [
             'bower_components/foundation/js/foundation.js',
-            'bower_components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky.js'
-          ]
+            'js/application.js'
+          ],
         }
       }
     },
@@ -32,7 +34,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass','uglify']
       }
     }
   });
@@ -41,6 +43,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['sass']);
+  grunt.registerTask('build', ['sass','uglify']);
   grunt.registerTask('default', ['build','watch']);
 }
+
