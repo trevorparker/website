@@ -19,9 +19,9 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          '_source/assets/js/jquery.min.js': 'bower_components/foundation/js/vendor/jquery.js',
-          '_source/assets/js/fastclick.min.js': 'bower_components/foundation/js/vendor/fastclick.js',
           '_source/assets/js/app.min.js': [
+            'bower_components/foundation/js/vendor/jquery.js',
+            'bower_components/foundation/js/vendor/fastclick.js',
             'bower_components/foundation/js/foundation.js',
             'js/application.js'
           ],
@@ -31,10 +31,16 @@ module.exports = function(grunt) {
 
     watch: {
       grunt: { files: ['Gruntfile.js'] },
-
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass','uglify']
+        tasks: ['sass']
+      },
+      uglify: {
+        files: [
+          'bower_components/**/*.js',
+          'js/*.js'
+        ],
+        tasks: ['uglify']
       }
     }
   });
