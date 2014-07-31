@@ -1,8 +1,13 @@
 #home-feature {
-  background: url(/assets/img/header-hero.jpg) #A0C9E9 90%/cover no-repeat;
+  background: url(/assets/img/header-hero.jpg) #A0C9E9 70%/cover no-repeat;
   text-align: left;
+  padding-top: 0;
+  padding-bottom: $padding-small;
 
-  @include expand-top($padding-medium);
+  @media #{$medium-up} {
+    @include expand-top($padding-medium);
+    @include expand-bottom($padding-medium);
+  }
 
   .headline, .subhead { color: $body-font-color; }
 
