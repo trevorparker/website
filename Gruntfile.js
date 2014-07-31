@@ -59,6 +59,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
+          '_source/assets/img/favicon*',
           '_source/assets/js/modernizr.min.js',
           '_source/assets/js/app.min.js',
           '_source/assets/css/app.min.css'
