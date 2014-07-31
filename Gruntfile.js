@@ -41,6 +41,32 @@ module.exports = function(grunt) {
           'js/*.js'
         ],
         tasks: ['uglify']
+      },
+      hashres: {
+        files: [
+          '_source/assets/js/modernizr.min.js',
+          '_source/assets/js/app.min.js',
+          '_source/assets/css/app.min.css'
+        ],
+        tasks: ['hashres']
+      }
+    },
+
+    hashres: {
+      options: {
+        fileNameFormat: '${name}.${ext}?${hash}',
+        renameFiles: false
+      },
+      dist: {
+        src: [
+          '_source/assets/js/modernizr.min.js',
+          '_source/assets/js/app.min.js',
+          '_source/assets/css/app.min.css'
+        ],
+        dest: [
+          '_source/_includes/head.html',
+          '_source/_includes/foundation_js.html'
+        ]
       }
     }
   });
@@ -48,8 +74,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-hashres');
 
-  grunt.registerTask('build', ['sass','uglify']);
+  grunt.registerTask('build', ['sass','uglify','hashres']);
   grunt.registerTask('default', ['build','watch']);
 }
 
