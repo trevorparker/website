@@ -2,9 +2,23 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'bower_components/font-awesome/fonts',
+          src: '*',
+          dest: '_source/assets/fonts/'
+        }]
+      }
+    },
+
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        includePaths: [
+          'bower_components/foundation/scss',
+          'bower_components/font-awesome/scss'
+        ]
       },
       dist: {
         options: {
@@ -31,8 +45,17 @@ module.exports = function(grunt) {
 
     watch: {
       grunt: { files: ['Gruntfile.js'] },
+      copy: {
+        files: [
+          'bower_components/font-awesome/fonts/*'
+        ],
+        tasks: ['copy']
+      },
       sass: {
-        files: 'scss/**/*.scss',
+        files: [
+          'scss/**/*.scss',
+          'bower_components/font-awesome/scss/*'
+        ],
         tasks: ['sass']
       },
       uglify: {
@@ -73,11 +96,12 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-hashres');
 
-  grunt.registerTask('build', ['sass','uglify','hashres']);
+  grunt.registerTask('build', ['copy','sass','uglify','hashres']);
   grunt.registerTask('default', ['build','watch']);
 }
 
