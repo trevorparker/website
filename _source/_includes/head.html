@@ -4,7 +4,7 @@
 {% if page.tags.size > 0 %}<meta name="keywords" content="{{ page.tags | join: ', ' }}, trevor, parker, trevor parker">{% else %}<meta name="keywords" content="technology, programming, perl, python, ruby, go, golang, music, photography, trevor, parker, trevor parker">{% endif %}
 
 <meta property="og:title" content="{% if page.title.size > 0 %}{{ page.title }}{% elsif paginator.page > 1 %}Page {{ paginator.page }} - Trevor Parker{% else %}Trevor Parker{% endif %}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{% if page.path contains '_posts' %}article{% else %}website{% endif %}">
 <meta property="og:image" content="https://www.trevorparker.com/assets/img/favicon-228.png?4c98f1d7">
 <meta property="og:site_name" content="Trevor Parker">
 <meta property="og:url" content="https://www.trevorparker.com{{ page.url | replace: 'index.html', '' }}">
