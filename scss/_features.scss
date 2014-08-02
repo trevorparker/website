@@ -12,10 +12,10 @@
   .headline, .subhead { color: $body-font-color; }
 
   #social-cta {
-    display: inline-block;
     margin-top: rem-calc(18);
     margin-left: 0;
     padding-left: 0;
+    display: inline-block;
 
     font-size: rem-calc(18);
     white-space: nowrap;
@@ -32,7 +32,14 @@
       }
 
       a {
+        display: inline-block;
         color: darken($primary-color, 10%);
+
+        min-height: rem-calc(36);
+
+        @media #{$medium-up} {
+          min-height: inherit;
+        }
 
         &:hover {
           color: $primary-color;
