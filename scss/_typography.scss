@@ -132,3 +132,16 @@ $topbar-title-weight: 300;
   font-size: 1.2em;
   content: "» ";
 }
+
+.small-caps, .smaller-caps {
+  text-transform: uppercase;
+}
+
+.small-caps {
+  font-size: 0.9em;
+}
+
+.smaller-caps {
+  font-size: 0.7em;
+}
+

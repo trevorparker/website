@@ -10,10 +10,10 @@ layout: default
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
         <header>
           <h2 class="headline" itemprop="name"><a href="{{ page.url }}" itemprop="url">{{ page.title }}</a></h2>
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          <time class="small-caps" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
             {{ page.date | date: "%B %d, %Y" }}
           </time>
-          <span class="byline">
+          <span class="byline small-caps">
             &ndash; by <span itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a href="https://plus.google.com/107238073607515316367" rel="author" >Trevor Parker</a></span>
           </span>
         </header>
@@ -24,7 +24,7 @@ layout: default
     <div class="row">
       <div class="small-12 medium-10 medium-centered large-8 large-centered columns" itemprop="description articleBody">
         {{ content }}
-        <p class="text-center"><small>This written work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</small></p>
+        <p class="text-center license-statement smaller-caps">This written work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
         <footer>
           {% if page.tags.size > 0 %}<div class="post-tags buffer-small hide-for-small-only">
             <span class="subdued">Tagged:</span>
@@ -47,3 +47,4 @@ layout: default
     </div>
   </div>
 </section>
+

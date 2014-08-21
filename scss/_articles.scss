@@ -4,7 +4,6 @@ article {
   }
 
   footer {
-    padding-top: 1em;
     border-top: 1px solid $primary-color;
   }
 
@@ -21,5 +20,11 @@ article {
   .comment-link, .more, .subdued {
     color: $subdued-color;
     font-size: rem-calc(14);
+  }
+
+  .license-statement {
+    color: $subdued-color;
+    margin-top: 3em;
+    margin-bottom: 3em;
   }
 }
