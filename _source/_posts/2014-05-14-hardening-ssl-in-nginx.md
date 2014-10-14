@@ -27,7 +27,7 @@ Ciphers make encryption and message authentication work. If a cipher is determin
 At the time of writing, the following [Nginx](http://nginx.org/) configuration is what is used on this site, and achieves an A+ rating on the [Qualys SSL Labs test](https://www.ssllabs.com/ssltest/index.html):
 
 ~~~
-ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 ssl_prefer_server_ciphers on;
 ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!DSS:!PKS;
 ssl_session_timeout 5m;
@@ -68,7 +68,7 @@ Once you're comfortable with the idea of your site being HTTPS-only, you can bum
 Most of the configuration options described here can be easily translated to Apache and other modern web servers. For instance, here's Apache's flavor of the SSL cipher configuration described above:
 
 ~~~
-SSLProtocol all -SSLv2
+SSLProtocol all -SSLv2 -SSLv3
 SSLHonorCipherOrder on
 SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:RC4-SHA:!aNULL:!MD5:!DSS
 ~~~
@@ -80,3 +80,6 @@ Header set Strict-Transport-Security "max-age=31536000;"
 ~~~
 
 Security is a neverending process, so it is important to stay aware of and prepared to handle any change in the effectiveness of a cipher. Keeping an eye on resources such as [Mozilla's Recommended Ciphersuites](https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite) and [SSL/TLS Deployment Best Practices by Qualys SSL Labs](https://www.ssllabs.com/projects/best-practices/) is a good place to start.
+
+**Updated October 14**: The recommended SSL protocols were revised to remove SSLv3 in light of the [POODLE exploit](http://googleonlinesecurity.blogspot.com/2014/10/this-poodle-bites-exploiting-ssl-30.html).
+
