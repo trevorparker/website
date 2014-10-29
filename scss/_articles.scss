@@ -17,6 +17,25 @@ article {
     }
   }
 
+  hr {
+    margin-top: rem-calc(32);
+    margin-bottom: rem-calc(32);
+  }
+
+  .feature-icon {
+    > img {
+      max-height: 150px;
+    }
+  }
+
+  .feature-icon, .feature-label {
+    text-align: center;
+  }
+
+  .feature-label {
+    font-size: $h2-font-size;
+  }
+
   .comment-link, .more, .subdued {
     color: $subdued-color;
     font-size: rem-calc(14);
