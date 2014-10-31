@@ -24,7 +24,10 @@ article {
 
   .feature-icon {
     > img {
-      max-height: 150px;
+      max-height: 100px;
+      @media #{$medium-up} {
+        max-height: 150px;
+      }
     }
   }
 
