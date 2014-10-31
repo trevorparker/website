@@ -26,7 +26,7 @@ layout: default
         {{ content }}
         <p class="text-center license-statement smaller-caps">This written work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
         <footer>
-          {% if page.tags.size > 0 %}<div class="post-tags buffer-small hide-for-small-only">
+          {% if page.tags.size > 0 %}<div class="post-tags buffer-small-bottom hide-for-small-only">
             <ul class="tags">{% for tag in page.tags %}
               <li>
                 <a href="/tag/{{ tag | replace: ' ', '-' | downcase }}/" title="All posts tagged &ldquo;{{ tag }}&rdquo;" rel="tag">{{ tag }}</a>
