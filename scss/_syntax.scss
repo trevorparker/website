@@ -1,8 +1,9 @@
 code, .code {
   color: #222;
-  font-weight: 400;
+  font-size: rem-calc(14);
   line-height: rem-calc(18);
   background-color: #f0faff;
+  border-style: none;
 }
 
 pre {
@@ -11,7 +12,10 @@ pre {
   overflow: auto;
   page-break-inside: avoid;
 
-  code, .code { font-size: rem-calc(11); }
+  code, .code {
+    font-size: rem-calc(11);
+    padding: 0;
+  }
 }
 
 pre, code, .code { margin-bottom: $paragraph-margin-bottom; }

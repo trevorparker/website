@@ -9,6 +9,7 @@ tags:
   - ciphers
   - hsts
   - security
+  - logjam
 layout: post
 summary: A starting point for hardening SSL on an Nginx web server.
 ---
@@ -24,6 +25,7 @@ For starters, you'll want to choose a set of ciphers that provide a high assuran
 
 Ciphers make encryption and message authentication work. If a cipher is determined to be weak or vulnerable to attack, its usefulness is instantly degraded. Unfortunately a balance has to be maintained between the set of ciphers that are still good enough to be useful and the set of ciphers that are supported by your visitor's browsers.
 
+
 At the time of writing, the following [Nginx](http://nginx.org/) configuration is what is used on this site, and achieves an A+ rating on the [Qualys SSL Labs test](https://www.ssllabs.com/ssltest/index.html):
 
 ~~~
@@ -32,14 +34,26 @@ ssl_prefer_server_ciphers on;
 ssl_ciphers DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:kEDH+AESGCM:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA;
 ssl_session_timeout 5m;
 ssl_session_cache shared:SSL:10m;
+
+ssl_dhparam /path/to/dhparams.pem
 ~~~
 
 {: .arrow-for-more}
 [View my current Nginx configuration for this site on GitHub](https://github.com/trevorparker/nginx-configs/blob/master/trevorparker.com).
 
-The most important bits here are the `ssl_protocols`, `ssl_prefer_server_ciphers`, and `ssl_ciphers` lines.
+The most important bits here are the `ssl_protocols`, `ssl_prefer_server_ciphers`, `ssl_ciphers`, and `ssl_dhparam` lines.
 
 We snuff out older SSL versions with the `ssl_protocols` line. To help ensure that the browser we only use the ciphers we want, `ssl_prefer_server_ciphers` is turned on. Finally, `ssl_ciphers` specifies the list of ciphers that we are OK with -- along with a handful of conditions that we explicitly want to exclude (`!aNULL` to refuse ciphers without authentication, `!MD5` to refuse ciphers with MD5, and so on).
+
+#### The Logjam Attack
+
+The last bit, `ssl_dhparam`, is due to an attack against the Diffie-Hellman key exchange, a critical part of setting up TLS sessions. Unfortunately, many services employing TLS used the same set of prime numbers, which resulted in what is known as the [Logjam attack](https://weakdh.org), as described in [this report](https://weakdh.org/imperfect-forward-secrecy.pdf). So, we also need to ensure that we're not using older export-grade crypto, and we need to generate our own Diffie-Hellman group:
+
+~~~
+openssl dhparam -out /path/to/dhparams.pem 2048
+~~~
+
+Replace `/path/to/dhparams.pem` in this command, and in your Nginx config, with a path of your choosing.
 
 ### Stricter Security with HSTS
 
@@ -80,6 +94,8 @@ Header set Strict-Transport-Security "max-age=31536000;"
 ~~~
 
 Security is a neverending process, so it is important to stay aware of and prepared to handle any change in the effectiveness of a cipher. Keeping an eye on resources such as [Mozilla's Recommended Ciphersuites](https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite) and [SSL/TLS Deployment Best Practices by Qualys SSL Labs](https://www.ssllabs.com/projects/best-practices/) is a good place to start.
+
+**Updated May 22, 2015**: Instructions for generating a unique Diffie-Hellman group have been added, as a result of the [Logjam attack](https://weakdh.org).
 
 **Updated December 20**: The preferred ciphers and their order more closely match Mozilla's recommendations, with the exception of preferring DHE over ECDHE. Additionally, the Nginx built-in SSL session cache as been disabled for performance reasons.
 
